@@ -1,0 +1,31 @@
+.container{
+    align-items: center;
+    background: linear-gradient(211.13deg, #003070 12.54%, rgba(0, 48, 112, 0.62) 98.7%);
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    justify-content: center;
+}
+
+.form{
+    align-items: center;
+    background: #E0E0E0;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: center;
+    padding: 2em 4em;
+    position: absolute;
+    width: 500px;
+}
+
+.logo{
+    border: none;
+    height: 44.67px;
+    position: absolute;
+    width: 250px;
+    top: 20px;
+}
+

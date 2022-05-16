@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap%27');
+
 
 *{
   box-sizing:border-box;
@@ -8,9 +10,77 @@
   
 }
 
+html{
+  font-size: 10px;
+}
+
 body{
+<<<<<<< Updated upstream
     font-family: 'Poppins';
     
+=======
+  font-family: 'Poppins', sans-serif; 
+}
+
+.title{
+  color: #003070;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-size: 2.8em;
+  font-weight: 500;
+  margin-top: 3em;
+  margin-bottom: 0.7em;
+}
+
+.handleInput{
+  background: #FFFFFF;
+  border: 1px solid #FC5700;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin: 0.5em;
+  padding: 1em;
+  outline: none;
+  width: 100%;
+}
+
+
+.button{
+  background: linear-gradient(241.69deg, #FF5800 7.46%, rgba(252, 87, 0, 0.44) 156.38%);
+  border: none;
+  border-radius: 15px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: 'Poppins';
+  margin-top: 10px;
+  padding: 1em 3em;
+  transition: all 0.2s;  
+  opacity: 0.8; 
+}
+
+.button:hover{
+  transform: scale(0.95);
+  opacity: 1;
+}
+
+
+.text{
+  color: #808080;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-top: 1.8em;
+  text-align: center;
+}
+
+.link{
+  color: #FC5700;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.2em;
+  font-style: normal;
+  text-align: center; 
+>>>>>>> Stashed changes
 }
 
 
