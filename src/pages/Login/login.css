@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(211.13deg, #003070 12.54%, rgba(0, 48, 112, 0.62) 98.7%);
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    display: flex;
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    padding: 2em 4em;
+    background: #E0E0E0;
+    border-radius: 25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    position: absolute;
+    width: 250px;
+    height: 44.67px;
+    top: 20px;
+    border: none;
+}
