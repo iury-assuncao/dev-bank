@@ -12,15 +12,15 @@ const Menu = () => {
             <img src={logo} className="menu__logo" alt="Logo DevBank" />
 
             <nav className="menu">
-                <Link to="" className="menu__link">
+                <Link to="extrato" className="menu__link">
                     <RiFileList3Line className="menu__icon" />
                     <span className="menu__span">Extrato</span>
                 </Link>
-                <Link to="" className="menu__link">
+                <Link to="saque" className="menu__link">
                     <BsCashCoin className="menu__icon" />
                     <span className="menu__span">Saque</span>
                 </Link>
-                <Link to="" className="menu__link">
+                <Link to="deposito" className="menu__link">
                     <BsCashStack className="menu__icon" />
                     <span className="menu__span">Depósito</span>
                 </Link>
