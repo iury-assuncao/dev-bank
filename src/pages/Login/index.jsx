@@ -14,7 +14,7 @@ const Login = () => {
         <div className="container">
             <form className="login">
                 <img src={logo} className="login__logo" alt="Logo DevBank"/>
-                <h1 className="login__title">Login</h1>
+                <h1 className="login__title">Loginn</h1>
 
                 <input className="login__handleInput" type='email' value={email} onChange={e => setEmail(e.target.value.trim())} placeholder='E-mail' required/>
                 <input className="login__handleInput" type='password' value={password} onChange={e => setPassword(e.target.value)} placeholder='Senha' required/>
