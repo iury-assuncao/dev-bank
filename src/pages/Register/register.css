@@ -1,0 +1,102 @@
+.container{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(211.13deg, #003070 12.54%, rgba(0, 48, 112, 0.62) 98.7%);
+    align-items: center;
+    justify-content: center;
+}
+
+.register{
+    display: flex;
+    position: absolute;
+    width: 750px;
+    padding: 2em 4em;
+    background: #E0E0E0;
+    border-radius: 25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register__logo{
+    position: absolute;
+    width: 250px;
+    height: 44.67px;
+    top: 20px;
+    border: none;
+}
+
+.register__title{
+    color: #003070;
+    font-style: normal;
+    font-size: 2.8em;
+    font-weight: 500;
+    margin-top: 3em;
+    margin-bottom: 0.7em;
+}
+
+.register__fieldset {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    border: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.register__handleInput{
+    width: 100%;
+    padding: 1em;
+    background: #FFFFFF;
+    border: 1px solid #FC5700;
+    border-radius: 15px;
+    font-size: 1.5em;
+    outline: none;
+}
+
+.register__handleInput--medium {
+    grid-column: span 2;
+}
+
+.register__handleInput--large {
+    grid-column: span 3;
+}
+  
+.register__button{
+    padding: 1em 3em;
+    margin-top: 30px;
+    background: linear-gradient(241.69deg, #FF5800 7.46%, rgba(252, 87, 0, 0.44) 156.38%);
+    border: none;
+    border-radius: 15px;
+    color: #FFFFFF;
+    font-family: 'Poppins';
+    cursor: pointer;
+    opacity: 0.8; 
+    transition: all 0.2s;
+}
+  
+.register__button:hover{
+    transform: scale(0.95);
+    opacity: 1;
+}
+  
+  
+.register__text{
+    margin-top: 1.8em;
+    color: #808080;
+    text-align: center;
+    font-style: normal;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+  
+.register__link{
+    color: #FC5700;
+    text-align: center; 
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1.2em;
+    font-style: normal;
+}
