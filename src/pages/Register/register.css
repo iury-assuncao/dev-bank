@@ -100,3 +100,19 @@
     font-size: 1.2em;
     font-style: normal;
 }
+
+@media (max-width: 376px){
+    .register{
+        width: 300px;
+        padding: 1em 1em;
+    }
+    .register__fieldset{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        columns: 1;
+        width: 100%;
+    }
+    .register__handleInput{
+        margin-bottom: 12px;
+    }
+}

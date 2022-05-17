@@ -85,3 +85,11 @@
     font-size: 1.2em;
     font-style: normal;
 }
+
+@media (max-width: 376px){
+    .login{
+        width: 300px;
+        padding: 1em 1em;
+    }
+}
+
