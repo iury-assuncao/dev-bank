@@ -1,0 +1,63 @@
+.container__withdraw{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70%;
+    width: 100%;
+}
+
+.withdraw{
+    align-items: center;
+    background-color: var(--gray);
+    border-radius: 30px;
+    box-shadow: -0.5em 0.5em 0.5em #9d9c9c ;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    padding: 8em;
+    position: absolute;
+    width: 400px;
+}
+
+.withdraw__text{
+    color: var(--orange);
+    font-size: 2em;
+    position: absolute;
+    top: 1em;
+}
+
+.withdraw__input{
+    background-color: var(--gray);
+    border: none;
+    border-bottom: 2px solid var(--orange);
+    color: var(--blue);
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    outline: none;
+    position: absolute;
+    top: 3.5em;
+}
+.withdraw__input::placeholder{
+    color: var(--blue);
+}
+
+.withdraw__button{
+    background: linear-gradient(241.69deg, #FF5800 7.46%, rgba(252, 87, 0, 0.44) 156.38%);
+    border: none;
+    border-radius: 15px;
+    color: var(--white);
+    cursor: pointer;
+    font-weight: bold;
+    padding: 1em;
+    position: absolute;
+    top: 10em;
+    transition: all 0.2s;
+    width: 100px;
+}
+
+.withdraw__button:hover{
+    transform: scale(0.95);
+    opacity: 1;
+}
