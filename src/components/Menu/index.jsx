@@ -25,7 +25,7 @@ const Menu = () => {
                     <BsCashStack className="menu__icon" />
                     <span className="menu__span">Depósito</span>
                 </Link>
-                <Link to="" className="menu__link">
+                <Link to="transferencia" className="menu__link">
                     <BiTransfer className="menu__icon" />
                     <span className="menu__span">Transferência</span>
                 </Link>

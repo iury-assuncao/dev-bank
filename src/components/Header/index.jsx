@@ -1,5 +1,9 @@
 import './header.css';
 import { FiSettings } from "react-icons/fi";
+import { BiExit } from "react-icons/bi";
+import { FaUserEdit } from "react-icons/fa";
+
+
 
 const Header = () => {
 
@@ -17,7 +21,18 @@ const Header = () => {
                     <span className="name__user">Fulano</span>
                 </div>
                 <div className="line"></div>
-                <FiSettings className="setting__icon" />
+
+                <div class="dropdown">
+                    <FiSettings className="setting__icon" />
+                    <ul class="dropdown-content">
+                        <li>
+                            <FaUserEdit className="icon" />
+                            <span>Editar perfil</span>
+                        </li>
+                        <li><BiExit className="icon"/>Sair</li>
+                    </ul>
+                </div>  
+                
             </div>
         </header>
         
