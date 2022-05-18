@@ -1,8 +1,14 @@
+import './deposito.css';
+
 
 const Deposito = () => {
     return(
-        <div>
-            deposito
+        <div className='container__deposit'>
+            <form className='deposit'>
+                <p className='deposit__text'>Qual é o valor do seu deposito?</p>
+                <input className='deposit__input' type="text" placeholder='0,00' />
+                <button className='deposit__button' type='submit'>Depositar</button>
+            </form>
         </div>
     )
 }

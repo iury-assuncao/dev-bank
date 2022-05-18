@@ -1,11 +1,11 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
+import Loading from "../components/Loading"
 
 const Login = lazy(() => import("../pages/Login"))
 const Register = lazy(() => import("../pages/Register"))
 const Dashboard = lazy(() => import("../pages/Dashboard"))
 
-import Loading from "../components/Loading"
 
 function Rotas() {
     return (
