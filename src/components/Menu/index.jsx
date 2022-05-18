@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import logo from "../../img/devBank-logo.png"
 
 import { RiFileList3Line } from 'react-icons/ri'
+import { BiTransfer } from 'react-icons/bi'
 import { BsCashCoin, BsCashStack, BsCreditCard } from 'react-icons/bs'
 
 import "./menu.css"
@@ -23,6 +24,10 @@ const Menu = () => {
                 <Link to="deposito" className="menu__link">
                     <BsCashStack className="menu__icon" />
                     <span className="menu__span">Depósito</span>
+                </Link>
+                <Link to="" className="menu__link">
+                    <BiTransfer className="menu__icon" />
+                    <span className="menu__span">Transferência</span>
                 </Link>
                 <Link to="" className="menu__link">
                     <BsCreditCard className="menu__icon" />
