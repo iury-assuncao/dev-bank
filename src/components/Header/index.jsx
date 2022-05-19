@@ -1,7 +1,8 @@
 import './header.css';
 import { FiSettings } from "react-icons/fi";
-import { BiExit } from "react-icons/bi";
+import { MdOutlineExitToApp } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 
@@ -24,13 +25,21 @@ const Header = () => {
 
                 <div class="dropdown">
                     <FiSettings className="setting__icon" />
-                    <ul class="dropdown-content">
-                        <li>
+
+                    <div class="dropdown-content">
+
+                        <Link to="edituser" className="drop__link">
                             <FaUserEdit className="icon" />
-                            <span>Editar perfil</span>
-                        </li>
-                        <li><BiExit className="icon"/>Sair</li>
-                    </ul>
+                            <span className="drop__span">Editar Perfil</span>
+                        </Link>
+
+                        <Link to="/" className="drop__link"> 
+                            <MdOutlineExitToApp className="icon"/>
+                            <span className="drop__span">Sair</span>
+                        </Link>
+
+                        
+                    </div>
                 </div>  
                 
             </div>
