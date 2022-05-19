@@ -87,6 +87,7 @@
     .menu__container{
         transform: translateX(-100%);
         transition: transform 0.3s ease-in;
+        
     }
 
     .menu__container.active{

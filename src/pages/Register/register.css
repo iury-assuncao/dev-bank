@@ -56,6 +56,13 @@
     outline: none;
 }
 
+.register__handleInput::placeholder{
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 1.4rem;
+    
+}
+
 .register__handleInput--medium {
     grid-column: span 2;
 }
@@ -66,7 +73,7 @@
   
 .register__button{
     padding: 1em 3em;
-    margin-top: 30px;
+    margin-top: 3rem;
     background: linear-gradient(241.69deg, #FF5800 7.46%, rgba(252, 87, 0, 0.44) 156.38%);
     border: none;
     border-radius: 15px;
@@ -101,18 +108,43 @@
     font-style: normal;
 }
 
-@media (max-width: 376px){
+@media(max-width:768px){
     .register{
-        width: 300px;
-        padding: 1em 1em;
+        width: 90%;
+    }
+}
+
+@media (max-width: 425px){
+    .register{
+        width: 90%;
+        padding: 2rem;
+        height: 80vh;
     }
     .register__fieldset{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         columns: 1;
         width: 100%;
+        
+    }
+
+    .register__title{
+        font-size: 2rem;
     }
     .register__handleInput{
-        margin-bottom: 12px;
+        margin-bottom: 1.2rem;
+        padding: 1rem;
+    }
+    .register__handleInput::placeholder{
+        
+        font-size: 1rem;
+        
+    }
+    .register__button{
+        margin-top: 1.2rem;
+    }
+
+    .register__text{
+        margin-top: 1.2rem;
     }
 }
