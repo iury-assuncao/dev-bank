@@ -9,13 +9,13 @@ function AuthProvider({ children }) {
 
     const apiUrl = "https://api-contas-trade4devs.herokuapp.com"
 
-    const getExtract = async () => {
+    const getTransations = async () => {
         setLoading(true)
 
         //Alterar o ID do usuário na URL
         const { data: { operacoes } } = await axios.get(`${apiUrl}/conta/extrato/12345678912/{mes}`).finally(() => setLoading(false))
 
-        operacoes.map(item => {
+        operacoes.forEach(item => {
             item.valor = parseFloat(item.valor).toFixed(2)
             item.data = new Date(item.data)
         })
@@ -24,7 +24,7 @@ function AuthProvider({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{loading, getExtract}}>
+        <AuthContext.Provider value={{loading, getTransations}}>
             { children }
         </AuthContext.Provider>
     )

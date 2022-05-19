@@ -8,21 +8,21 @@ import "./extrato.css"
 const Extrato = () => {
 
     const [transations, setTransations] = useState([])
-    const [transationsMonth, setTransationsMonth] = useState([])
-    const [month, setMonth] = useState((new Date(Date.now()).getMonth()))
+    const [transationsByMonth, setTransationsByMonth] = useState([])
+    const [month, setMonth] = useState(0)
 
-    const { loading, getExtract } = useContext(AuthContext)
+    const { loading, getTransations } = useContext(AuthContext)
 
     useEffect(() => {
-        const loadExtract = async () => {
-            setTransations(await getExtract())
+        const loadTransations = async () => {
+            setTransations(await getTransations())
+            setMonth(new Date(Date.now()).getMonth())
         }
 
-        loadExtract()
+        loadTransations()
     }, [])
 
     useEffect(() => {
-
         const transationsNew = []
         
         transations.forEach(item => {
@@ -31,9 +31,8 @@ const Extrato = () => {
             }
         })
 
-        setTransationsMonth(transationsNew)
-
-    }, [month])
+        setTransationsByMonth(transationsNew)
+    }, [month, transations])
 
     return(
         <div className="statement">
@@ -56,7 +55,7 @@ const Extrato = () => {
                 loading
                 ? <Loading />
                 :
-                transationsMonth.length === 0
+                transationsByMonth.length === 0
                     ? <h2>Sem transações</h2>
                     : 
                     <table className="statement__list">
@@ -69,7 +68,7 @@ const Extrato = () => {
                         </thead>
                         <tbody className="statement__list-content">
                             {
-                                transationsMonth.map(item => {
+                                transationsByMonth.map(item => {
                                     return (
                                         <tr key={item._id}>
                                             <td className={item.tipo === "ENTRADA" ? "statement__value--income" : "statement__value--expense"}>{item.valor}</td>
