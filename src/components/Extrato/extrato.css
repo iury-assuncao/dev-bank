@@ -1,0 +1,48 @@
+.statement {
+    width: 95%;
+}
+
+/*.statement__month {
+    padding: .2em;
+    margin: 2em 0;
+    background: none;
+    border: 1px solid var(--white);
+    border-bottom: 2px solid var(--orange);
+    color: var(--orange);
+    font-size: 2em;
+    font-weight: 600;
+    justify-self: center;
+    outline: none;
+}
+
+.statement__month option {
+    color: var(--blue);
+}*/
+
+.statement__list {
+    width: 100%;
+    margin-top: 3.5em;
+    text-align: center;
+    font-size: 2em;
+    border-spacing: 0;
+}
+
+.statement__list-header {
+    font-weight: 700;
+}
+
+.statement__list td, .statement__list th {
+    padding: .75em 0;
+}
+
+.statement__list-content tr:nth-child(odd) {
+    background: var(--gray);
+}
+
+.statement__value--income {
+    color: var(--green);
+}
+
+.statement__value--expense {
+    color: var(--red);
+}
