@@ -16,14 +16,11 @@
     width: 40rem;
     gap:3rem;
     padding: 4rem 0;
-    
-    
 }
 
 .withdraw__text{
     color: var(--orange);
     font-size: 2em;
-    
     top: 1em;
 }
 
@@ -36,7 +33,6 @@
     font-size: 2em;
     font-weight: bold;
     outline: none;
-    
     top: 3.5em;
 }
 .withdraw__input::placeholder{
@@ -48,17 +44,21 @@
     border: none;
     border-radius: 15px;
     color: var(--white);
-    cursor: pointer;
+    cursor: pointer; 
     font-weight: 300;
     padding: 1em;
-    
     top: 10em;
     transition: all 0.2s;
     width: 100px;
-    font-family: 'Poppins';
 }
 
 .withdraw__button:hover{
     transform: scale(0.95);
     opacity: 1;
+}
+
+@media (max-width: 376px){
+    .withdraw{
+        width: 300px;
+    }
 }
