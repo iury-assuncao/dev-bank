@@ -40,7 +40,7 @@ const Menu = () => {
                         <BiTransfer className="menu__icon" />
                         <span className="menu__span">Transferência</span>
                     </Link>
-                    <Link to="" className="menu__link">
+                    <Link to="cartoes" className="menu__link">
                         <BsCreditCard className="menu__icon" />
                         <span className="menu__span">Cartões</span>
                     </Link>

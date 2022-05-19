@@ -5,6 +5,7 @@ import Deposito from "../../components/Deposito";
 import Extrato from "../../components/Extrato";
 import Saque from "../../components/Saque";
 import Transferencia from "../../components/Transferencia";
+import Cartoes from "../../components/Cartoes";
 
 import { Routes, Route} from "react-router-dom";
 
@@ -27,7 +28,7 @@ const Dashboard = () => {
                         <Route path="/saque" element={<Saque />}/>
                         <Route path="/deposito" element={<Deposito />}/>
                         <Route path="/transferencia" element={<Transferencia />}/>
-                        
+                        <Route path="cartoes" element={<Cartoes/>}/>
                     </Routes>
                                     
                 </div>
