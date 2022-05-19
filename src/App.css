@@ -4,6 +4,8 @@
 :root{
   --linear-blue:linear-gradient(211.13deg, #003070 12.54%, rgba(0, 48, 112, 0.62) 91.76%);
   --linear-orange:linear-gradient(241.69deg, #FF5800 7.46%, rgba(252, 87, 0, 0.44) 156.38%);
+  --red: #E64B4B;
+  --green: #058A32;
   --gray:#E0E0E0;
   --white:#EDEDED;
   --orange:#FC5700;
