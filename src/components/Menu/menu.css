@@ -69,9 +69,14 @@
     color: #003070;
 }
 
+@media (max-width: 376px){
+    .nav__content{
+        position: absolute;
+    }
+}
+
 @media (max-width:768px){
     body{
-        
         overflow-x: hidden;
     }
 

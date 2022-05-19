@@ -1,3 +1,5 @@
+import './transferencia.css';
+
 const Transferencia = () => {
     return(
         <div>
