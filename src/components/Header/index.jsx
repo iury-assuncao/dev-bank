@@ -1,15 +1,17 @@
 import './header.css';
+
 import { FiSettings } from "react-icons/fi";
 import { MdOutlineExitToApp } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 
-
 const Header = () => {
+    
 
     return(
         <header>
+             
             <div>
                 <span className="balance">Saldo</span>
                 <span className="balance__rs">R$</span>
