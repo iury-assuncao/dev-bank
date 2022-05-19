@@ -15,6 +15,11 @@ function AuthProvider({ children }) {
         //Alterar o ID do usuário na URL
         const { data: { operacoes } } = await axios.get(`${apiUrl}/conta/extrato/12345678912/{mes}`).finally(() => setLoading(false))
 
+        operacoes.map(item => {
+            item.valor = parseFloat(item.valor).toFixed(2)
+            item.data = new Date(item.data)
+        })
+
         return operacoes
     }
 

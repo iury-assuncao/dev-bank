@@ -2,7 +2,7 @@
     width: 95%;
 }
 
-/*.statement__month {
+.statement__month {
     padding: .2em;
     margin: 2em 0;
     background: none;
@@ -17,11 +17,13 @@
 
 .statement__month option {
     color: var(--blue);
-}*/
+}
+
+/* */
 
 .statement__list {
     width: 100%;
-    margin-top: 3.5em;
+    /*margin-top: 3.5em;*/
     text-align: center;
     font-size: 2em;
     border-spacing: 0;
