@@ -1,6 +1,22 @@
+
+
+.mobile__menu{ 
+    cursor: pointer;
+    display:none;
+   
+}
+
+.mobile__menu div{
+    width: 32px;
+    height: 2px;
+    background: rgb(31, 31, 31);
+    margin: 6px;
+    transition: 0.3s;
+    
+}
+
 .menu__container {
     display: flex;
-    position: fixed;
     width: 300px;
     height: 100%;
     padding: 5em 0;
@@ -34,7 +50,7 @@
     padding: 2rem 5rem;
     width: 100%;
     color: #FC5700;
-    font-size: 3em;
+    font-size: 2em;
     align-items: center;
     justify-content: flex-start;
     transition: .2s;
@@ -52,3 +68,46 @@
 .menu__link:hover .menu__span {
     color: #003070;
 }
+
+@media (max-width:768px){
+    body{
+        
+        overflow-x: hidden;
+    }
+
+    .nav__content{
+        width: 5rem;
+        
+    }
+    .menu__container{
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in;
+    }
+
+    .menu__container.active{
+        transform: translateX(0);
+        z-index: 2;
+    }
+
+    .mobile__menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 8rem;
+        width: 5rem;
+        
+    }
+
+    .mobile__menu.active .line1{
+        transform: rotate(-45deg) translate(-10px, 9px);
+    }
+    .mobile__menu.active .line2{
+        opacity: 0;
+        
+    }
+    .mobile__menu.active .line3{
+        transform: rotate(45deg) translate(-10px, -10px);
+    }
+}
+
