@@ -52,6 +52,10 @@
     width: 100px;
 }
 
+.withdraw__button--disable {
+    cursor: not-allowed;
+}
+
 .withdraw__button:hover{
     transform: scale(0.95);
     opacity: 1;

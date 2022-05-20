@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify"
 import axios from "axios";
 
 export const AuthContext = createContext({})
@@ -14,7 +15,12 @@ function AuthProvider({ children }) {
     const getTransations = async () => {
         setLoading(true)
 
-        const { data: { operacoes } } = await axios.get(`${apiUrl}/conta/extrato/${user.cpf}/{mes}`).finally(() => setLoading(false))
+        const { data: { operacoes } } = await axios.get(`${apiUrl}/conta/extrato/${user.cpf}/{mes}`)
+                                            .catch(error => {
+                                                toast.error("Erro ao buscar transações")
+                                                console.error(error)
+                                            })
+                                            .finally(() => setLoading(false))
 
         operacoes.forEach(item => {
             item.valor = parseFloat(item.valor).toFixed(2)
@@ -26,11 +32,16 @@ function AuthProvider({ children }) {
 
     const getBalance = async () => {
         const { data: { saldo } } = await axios.get(`${apiUrl}/conta/saldo/${user.cpf}`)
+                                        .catch(error => {
+                                            toast.error("Erro ao buscar transações")
+                                            console.error(error)
+                                        })
 
         setBalance(saldo.toFixed(2))
     }
 
-    const operation = async (type, value) => {
+    const operation = async (type, value, destiny) => {
+        setLoading(true)
 
         const data = {
             cpf: user.cpf,
@@ -43,9 +54,11 @@ function AuthProvider({ children }) {
                 data.tipo = "ENTRADA"
 
                 await axios.post(`${apiUrl}/conta/operacao`, data)
-                    .then(() => console.log("Transação realizada"))
-                    .catch(error => console.log(error))
-                    console.log(data)
+                    .then(() => toast.success("Transação realizada"))
+                    .catch(error => {
+                        toast.error(error)
+                        console.log(error)
+                    })
 
                 break;
 
@@ -53,9 +66,24 @@ function AuthProvider({ children }) {
                 data.tipo = "SAIDA"
 
                 await axios.post(`${apiUrl}/conta/operacao`, data)
-                    .then(() => console.log("Transação realizada"))
-                    .catch(error => console.log(error))
-                    console.log(data)
+                    .then(() => toast.success("Transação realizada"))
+                    .catch(error => {
+                        toast.error(error)
+                        console.log(error)
+                    })
+
+                break;
+
+            case "transf":
+                data.tipo = "SAIDA"
+                data.destinatario = destiny
+
+                await axios.post(`${apiUrl}/conta/operacao`, data)
+                    .then(() => toast.success("Transação realizada"))
+                    .catch(error => {
+                        toast.error(error)
+                        console.log(error)
+                    })
 
                 break;
         
@@ -64,6 +92,7 @@ function AuthProvider({ children }) {
         }
 
         getBalance()
+        setLoading(false)
     }
 
     useEffect(() => {
