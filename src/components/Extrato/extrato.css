@@ -1,5 +1,7 @@
 .statement {
     width: 95%;
+    height: 100%;
+    overflow: scroll;
 }
 
 .statement__month {
@@ -23,7 +25,6 @@
 
 .statement__list {
     width: 100%;
-    /*margin-top: 3.5em;*/
     text-align: center;
     font-size: 2em;
     border-spacing: 0;
