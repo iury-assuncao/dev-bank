@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useMemo } from "react";
 import { toast } from "react-toastify"
 import axios from "axios";
 
@@ -12,10 +12,38 @@ function AuthProvider({ children }) {
 
     const apiUrl = "https://api-contas-trade4devs.herokuapp.com"
 
+    /*const memorizedUser = useMemo(() => {
+        if (!user) {
+            const userStorage = localStorage.getItem("usuario")
+            const userParsed  = JSON.parse(userStorage)
+
+
+            console.log("teste", userParsed )
+
+            setUser(userParsed )
+            setLoading(false)
+
+            return userParsed 
+        }
+
+        setLoading(false)
+        return user
+    }, [user])
+
+    const storageUser = (data) => {
+        const userStringfy = JSON.stringify(data)
+        localStorage.setItem("usuario", userStringfy)
+    }*/
+
+    // BUSCAR EXTRATO DAS TRANSAÇÕES
     const getTransations = async () => {
         setLoading(true)
 
-        const { data: { operacoes } } = await axios.get(`${apiUrl}/conta/extrato/${user.cpf}/{mes}`)
+        if (!user) {
+            return
+        }
+        
+        const { data: { operacoes } } = await axios.get(`${apiUrl}/conta/extrato/${user.cpf}`)
                                             .catch(error => {
                                                 toast.error("Erro ao buscar transações")
                                                 console.error(error)
@@ -30,7 +58,12 @@ function AuthProvider({ children }) {
         return operacoes
     }
 
+    // BUSCAR SALDO
     const getBalance = async () => {
+        if (!user) {
+            return
+        }
+
         const { data: { saldo } } = await axios.get(`${apiUrl}/conta/saldo/${user.cpf}`)
                                         .catch(error => {
                                             toast.error("Erro ao buscar transações")
@@ -40,7 +73,8 @@ function AuthProvider({ children }) {
         setBalance(saldo.toFixed(2))
     }
 
-    const operation = async (type, value, destiny) => {
+    // REALIZAR TRANSAÇÕES
+    const operation = async (type, value) => {
         setLoading(true)
 
         const data = {
@@ -76,7 +110,7 @@ function AuthProvider({ children }) {
 
             case "transf":
                 data.tipo = "SAIDA"
-                data.destinatario = destiny
+                //data.destinatario = destiny
 
                 await axios.post(`${apiUrl}/conta/operacao`, data)
                     .then(() => toast.success("Transação realizada"))
@@ -95,6 +129,33 @@ function AuthProvider({ children }) {
         setLoading(false)
     }
 
+    const login = async (email, password) => {
+        setLoading(true)
+
+        const loginData = { email, senha: password }
+
+        await axios.post(`${apiUrl}/login`, loginData)
+            .then(async () => {
+                const { data } = await axios.get(`${apiUrl}/conta`)
+                
+                data.forEach(account => {
+                    if (account.email === email) {
+                        account.cpf = (account.cpf).replace(/(\.|\-)/g, "")
+                        
+                        //setUser(account)
+                        //storageUser(account)
+                        console.log(account)
+                        toast.success("Login realizado com sucesso")
+                    }
+                })
+            })
+            .catch(error => {
+                toast.error("Erro ao fazer login")
+                console.error(error)
+            })
+            .finally(() => setLoading(false))
+    }
+
     useEffect(() => {
         const loadBalance = async () => {
             await getBalance()
@@ -104,7 +165,7 @@ function AuthProvider({ children }) {
     }, [])
 
     return (
-        <AuthContext.Provider value={{loading, balance, getTransations, operation}}>
+        <AuthContext.Provider value={{loading, balance, login, getTransations, operation}}>
             { children }
         </AuthContext.Provider>
     )
