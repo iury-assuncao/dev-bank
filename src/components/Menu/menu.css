@@ -1,0 +1,119 @@
+
+
+.mobile__menu{ 
+    cursor: pointer;
+    display:none;
+   
+}
+
+.mobile__menu div{
+    width: 32px;
+    height: 2px;
+    background: rgb(31, 31, 31);
+    margin: 6px;
+    transition: 0.3s;
+    
+}
+
+.menu__container {
+    display: flex;
+    width: 300px;
+    height: 100%;
+    padding: 5em 0;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: #E0E0E0;
+    box-shadow: 0px 4px 18px #00000033;
+    z-index: 10;
+}
+
+.menu__logo {
+    width: 80%;
+    margin: auto;
+}
+
+.menu {
+    display: flex;
+    width: 100%;
+    margin-top: 5em;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.menu__link {
+    display: flex;
+    padding: 2rem 5rem;
+    width: 100%;
+    color: #FC5700;
+    font-size: 2em;
+    align-items: center;
+    justify-content: flex-start;
+    transition: .2s;
+}
+
+.menu__link:hover {
+    backdrop-filter: brightness(.95);
+}
+
+.menu__span {
+    padding-left: 2rem;
+    font-weight: 500;
+}
+
+.menu__link:hover .menu__span {
+    color: #003070;
+}
+
+@media (max-width: 376px){
+    .nav__content{
+        position: absolute;
+    }
+}
+
+@media (max-width:768px){
+    body{
+        overflow-x: hidden;
+    }
+
+    .nav__content{
+        width: 5rem;
+        
+    }
+    .menu__container{
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in;
+        
+    }
+
+    .menu__container.active{
+        transform: translateX(0);
+        z-index: 2;
+    }
+
+    .mobile__menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 8rem;
+        width: 5rem;
+        
+    }
+
+    .mobile__menu.active .line1{
+        transform: rotate(-45deg) translate(-10px, 9px);
+    }
+    .mobile__menu.active .line2{
+        opacity: 0;
+        
+    }
+    .mobile__menu.active .line3{
+        transform: rotate(45deg) translate(-10px, -10px);
+    }
+}
+
