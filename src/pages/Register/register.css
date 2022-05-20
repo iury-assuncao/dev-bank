@@ -78,7 +78,6 @@
     border: none;
     border-radius: 15px;
     color: #FFFFFF;
-    font-family: 'Poppins';
     cursor: pointer;
     opacity: 0.8; 
     transition: all 0.2s;
@@ -102,7 +101,6 @@
 .register__link{
     color: #FC5700;
     text-align: center; 
-    font-family: 'Poppins';
     font-weight: 400;
     font-size: 1.2em;
     font-style: normal;
