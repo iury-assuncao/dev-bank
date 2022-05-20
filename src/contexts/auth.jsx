@@ -6,19 +6,16 @@ export const AuthContext = createContext({})
 
 function AuthProvider({ children }) {
 
-    const [user, setUser] = useState({cpf: "12345678912"})
+    const [user, setUser] = useState()
     const [balance, setBalance] = useState()
     const [loading, setLoading] = useState(false)
 
     const apiUrl = "https://api-contas-trade4devs.herokuapp.com"
 
-    /*const memorizedUser = useMemo(() => {
+    const memorizedUser = useMemo(() => {
         if (!user) {
             const userStorage = localStorage.getItem("usuario")
             const userParsed  = JSON.parse(userStorage)
-
-
-            console.log("teste", userParsed )
 
             setUser(userParsed )
             setLoading(false)
@@ -33,7 +30,7 @@ function AuthProvider({ children }) {
     const storageUser = (data) => {
         const userStringfy = JSON.stringify(data)
         localStorage.setItem("usuario", userStringfy)
-    }*/
+    }
 
     // BUSCAR EXTRATO DAS TRANSAÇÕES
     const getTransations = async () => {
@@ -74,43 +71,43 @@ function AuthProvider({ children }) {
     }
 
     // REALIZAR TRANSAÇÕES
-    const operation = async (type, value) => {
+    const operation = async (op, value, destiny = "") => {
         setLoading(true)
 
         const data = {
-            cpf: user.cpf,
-            tipo: "",
+            remetente: user.cpf,
+            destinatario: "",
             valor: value
         }
 
-        switch (type) {
-            case "income":
-                data.tipo = "ENTRADA"
+        switch (op) {
+            case "deposit":
+                data.destinatario = user.cpf
 
-                await axios.post(`${apiUrl}/conta/operacao`, data)
+                /*await axios.post(`${apiUrl}/conta/operacao`, data)
                     .then(() => toast.success("Transação realizada"))
                     .catch(error => {
                         toast.error(error)
                         console.log(error)
-                    })
+                    })*/
 
+                console.log(data)    
                 break;
 
             case "expense":
-                data.tipo = "SAIDA"
+                data.destinatario = "SAIDA"
 
-                await axios.post(`${apiUrl}/conta/operacao`, data)
+                /*await axios.post(`${apiUrl}/conta/operacao`, data)
                     .then(() => toast.success("Transação realizada"))
                     .catch(error => {
                         toast.error(error)
                         console.log(error)
-                    })
-
+                    })*/
+                console.log(data)  
                 break;
 
             case "transf":
-                data.tipo = "SAIDA"
-                //data.destinatario = destiny
+                data.destinatario = destiny
 
                 await axios.post(`${apiUrl}/conta/operacao`, data)
                     .then(() => toast.success("Transação realizada"))
@@ -139,12 +136,10 @@ function AuthProvider({ children }) {
                 const { data } = await axios.get(`${apiUrl}/conta`)
                 
                 data.forEach(account => {
-                    if (account.email === email) {
-                        account.cpf = (account.cpf).replace(/(\.|\-)/g, "")
-                        
-                        //setUser(account)
-                        //storageUser(account)
-                        console.log(account)
+                    if (account.email === email) {                       
+                        setUser(account)
+                        storageUser(account)
+
                         toast.success("Login realizado com sucesso")
                     }
                 })
@@ -165,7 +160,7 @@ function AuthProvider({ children }) {
     }, [])
 
     return (
-        <AuthContext.Provider value={{loading, balance, login, getTransations, operation}}>
+        <AuthContext.Provider value={{signed: !!memorizedUser, loading, balance, login, getTransations, operation}}>
             { children }
         </AuthContext.Provider>
     )

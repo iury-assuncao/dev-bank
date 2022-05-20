@@ -23,7 +23,6 @@ const Dashboard = () => {
                     <Header />
 
                     <Routes>
-                    
                         <Route path="/extrato" element={<Extrato />}/>
                         <Route path="/saque" element={<Saque />}/>
                         <Route path="/deposito" element={<Deposito />}/>
