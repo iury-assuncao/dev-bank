@@ -12,6 +12,7 @@
   --blue:#003070;
   
 }
+
 *{
   padding:0;
   margin: 0;
@@ -26,4 +27,8 @@ html{
 
 body{
   font-family: 'Poppins', sans-serif; 
+}
+
+.toast {
+  font-size: 1.6rem;
 }
