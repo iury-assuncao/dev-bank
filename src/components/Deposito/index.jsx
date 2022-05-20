@@ -14,7 +14,7 @@ const Deposito = () => {
     const handleOperation = async (e) => {
         e.preventDefault()
 
-        await operation("income", value.toFixed(2))
+        await operation("deposit", value.toFixed(2))
     }
 
     return(
