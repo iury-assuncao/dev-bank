@@ -12,9 +12,10 @@ const Transferencia = () => {
 
     const { loading, transfer, balance } = useContext(AuthContext)
 
-    const handleTransfer = async () => {
+    const handleTransfer = async (e) => {
+        e.preventDefault();
 
-        setValue(value.toFixed(2))
+        //setValue((value).toFixed(2))
 
         if (value < balance) return
         

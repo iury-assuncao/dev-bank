@@ -9,6 +9,7 @@ function AuthProvider({ children }) {
     const [user, setUser] = useState()
     const [balance, setBalance] = useState()
     const [loading, setLoading] = useState(false)
+    
 
     const apiUrl = "https://api-contas-trade4devs.herokuapp.com"
 
@@ -81,7 +82,7 @@ function AuthProvider({ children }) {
         await axios.post(`${apiUrl}/conta/operacao`, data)
             .then(() => toast.success("Transferência realizada"))
             .catch(error => {
-                toast.error(error)
+                toast.error("Erro ao realizar transação!")
                 console.log(error)
             })
 
@@ -169,8 +170,20 @@ function AuthProvider({ children }) {
         setUser(null)
     }
 
+    //CADSTRO
+    const register = async ( data) => {
+        console.log(data);
+        await axios.post(`${apiUrl}/conta`, data)
+        .then(() => toast.success("Usuário Cadastrado!"))
+        .catch(error => {
+            toast.error(error)
+            console.log(error)
+        })
+
+    }
+
     return (
-        <AuthContext.Provider value={{signed: !!memorizedUser, loading, balance, login, logout, getTransations, getBalance, transfer}}>
+        <AuthContext.Provider value={{signed: !!memorizedUser, loading, balance, login, logout, getTransations, getBalance, transfer, register}}>
             { children }
         </AuthContext.Provider>
     )

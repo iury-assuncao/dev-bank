@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/auth";
 
 import logo from '../../img/devBank-logo.png'
 
@@ -7,16 +8,35 @@ import "./register.css"
 
 function Register() {
 
-    const [name, setName] = useState()
-    const [cpf, setCpf] = useState()
-    const [email, setEmail] = useState()
-    const [birth, setBirth] = useState()
-    const [password, setPassword] = useState()
-    const [confirmPassword, setConfirmPassword] = useState()
+    const [name, setName] = useState("")
+    const [cpf, setCpf] = useState("")
+    const [email, setEmail] = useState("")
+    const [birth, setBirth] = useState("")
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+
+    const { register } = useContext(AuthContext);
+
+    
+
+    const handleRegister = async (e) => {
+        e.preventDefault();
+
+        const data = { 
+            nome: name, 
+            telefone: confirmPassword,
+            email, 
+            cpf, 
+            dataNascimento:birth, 
+            senha:password 
+        };
+
+        await register(data);
+    }
 
     return (
         <div className="container">
-            <form className="register">
+            <form className="register" onSubmit={handleRegister}>
                 <img src={logo} className="register__logo" alt="Logo DevBank"/>
                 <h1 className="register__title">Cadastro</h1>
 
