@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import Loading from "../components/Loading"
 
 import WatchLogin from "./WatchLogin"
-import PrivateOutlet from "./PrivateOutlet"
 
 const Login = lazy(() => import("../pages/Login"))
 const Register = lazy(() => import("../pages/Register"))

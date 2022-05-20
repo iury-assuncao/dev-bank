@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState, useMemo } from "react";
+import { createContext, useState, useMemo } from "react";
 import { toast } from "react-toastify"
 import axios from "axios";
 
@@ -12,6 +12,7 @@ function AuthProvider({ children }) {
 
     const apiUrl = "https://api-contas-trade4devs.herokuapp.com"
 
+    // CARREGAR LOCAL STORAGE
     const memorizedUser = useMemo(() => {
         if (!user) {
             const userStorage = localStorage.getItem("usuario")
@@ -27,6 +28,7 @@ function AuthProvider({ children }) {
         return user
     }, [user])
 
+    // INSERIR LOCAL STORAGE
     const storageUser = (data) => {
         const userStringfy = JSON.stringify(data)
         localStorage.setItem("usuario", userStringfy)
@@ -57,10 +59,6 @@ function AuthProvider({ children }) {
 
     // BUSCAR SALDO
     const getBalance = async () => {
-        if (!user) {
-            return
-        }
-
         const { data: { saldo } } = await axios.get(`${apiUrl}/conta/saldo/${user.cpf}`)
                                         .catch(error => {
                                             toast.error("Erro ao buscar transações")
@@ -71,25 +69,38 @@ function AuthProvider({ children }) {
     }
 
     // REALIZAR TRANSAÇÕES
-    const operation = async (op, value, destiny = "") => {
+    const transfer = async (recipient, value) => {
         setLoading(true)
 
         const data = {
             remetente: user.cpf,
-            destinatario: "",
+            destinatario: recipient,
             valor: value
         }
 
-        switch (op) {
+        await axios.post(`${apiUrl}/conta/operacao`, data)
+            .then(() => toast.success("Transferência realizada"))
+            .catch(error => {
+                toast.error(error)
+                console.log(error)
+            })
+
+        /*const data = {
+            remetente: user.cpf,
+            destinatario: "",
+            valor: value
+        }*/
+
+        /*switch (op) {
             case "deposit":
                 data.destinatario = user.cpf
 
-                /*await axios.post(`${apiUrl}/conta/operacao`, data)
+                await axios.post(`${apiUrl}/conta/operacao`, data)
                     .then(() => toast.success("Transação realizada"))
                     .catch(error => {
                         toast.error(error)
                         console.log(error)
-                    })*/
+                    })
 
                 console.log(data)    
                 break;
@@ -97,12 +108,12 @@ function AuthProvider({ children }) {
             case "expense":
                 data.destinatario = "SAIDA"
 
-                /*await axios.post(`${apiUrl}/conta/operacao`, data)
+                await axios.post(`${apiUrl}/conta/operacao`, data)
                     .then(() => toast.success("Transação realizada"))
                     .catch(error => {
                         toast.error(error)
                         console.log(error)
-                    })*/
+                    })
                 console.log(data)  
                 break;
 
@@ -120,12 +131,13 @@ function AuthProvider({ children }) {
         
             default:
                 break;
-        }
+        }*/
 
         getBalance()
         setLoading(false)
     }
 
+    // LOGIN
     const login = async (email, password) => {
         setLoading(true)
 
@@ -151,16 +163,14 @@ function AuthProvider({ children }) {
             .finally(() => setLoading(false))
     }
 
-    useEffect(() => {
-        const loadBalance = async () => {
-            await getBalance()
-        }
-
-        loadBalance()
-    }, [])
+    // LOGOUT
+    const logout = () => {
+        localStorage.removeItem("usuario")
+        setUser(null)
+    }
 
     return (
-        <AuthContext.Provider value={{signed: !!memorizedUser, loading, balance, login, getTransations, operation}}>
+        <AuthContext.Provider value={{signed: !!memorizedUser, loading, balance, login, logout, getTransations, getBalance, transfer}}>
             { children }
         </AuthContext.Provider>
     )

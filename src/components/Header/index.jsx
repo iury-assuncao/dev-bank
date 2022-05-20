@@ -1,15 +1,27 @@
-import './header.css';
-
 import { FiSettings } from "react-icons/fi";
 import { MdOutlineExitToApp } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/auth';
 
+import './header.css';
 
 const Header = () => {
-    const { balance } = useContext(AuthContext)
+    const { balance, logout, getBalance } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logout()
+    }
+
+    // CARREGAR SALDO
+    useEffect(() => {
+        const loadBalance = async () => {
+            await getBalance()
+        }
+
+        loadBalance()
+    }, [])
 
     return(
         <header>
@@ -37,7 +49,7 @@ const Header = () => {
                             <span className="drop__span">Editar Perfil</span>
                         </Link>
 
-                        <Link to="/" className="drop__link"> 
+                        <Link to="/" onClick={() => handleLogout()} className="drop__link"> 
                             <MdOutlineExitToApp className="icon"/>
                             <span className="drop__span">Sair</span>
                         </Link>

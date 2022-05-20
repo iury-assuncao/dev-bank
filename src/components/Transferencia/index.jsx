@@ -1,16 +1,43 @@
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../contexts/auth';
+
+import Loading from "../Loading"
+
 import './transferencia.css';
 
 const Transferencia = () => {
+
+    const [value, setValue] = useState()
+    const [recipient, setRecipient] = useState()
+
+    const { loading, transfer, balance } = useContext(AuthContext)
+
+    const handleTransfer = async () => {
+
+        setValue(value.toFixed(2))
+
+        if (value < balance) return
+        
+        transfer(recipient, value)
+    }
+
     return(
         <div className='container__transfer'>
-                        <form className='transfer'>
-                            <p className='transfer__text'>Qual é o valor da transferência?</p>
-                            <input className='transfer__input__value' type="number" placeholder='0,00' />
-                            <p className='transfer__text__recipient'>Para quem deseja fazer a transferência?</p>
-                            <input className='transfer__input__recipient' type="text" placeholder='CPF do destinatário' />
-                            <button className='transfer__button'>Confirmar</button>
-                        </form>
-                    </div>
+            {
+                loading
+                ? <Loading />
+                :
+                <form className='transfer' onSubmit={handleTransfer}>
+                    <label className='transfer__text'>Qual é o valor da transferência?</label>
+                    <input className='transfer__input__value' value={value} onChange={e => setValue(parseFloat(e.target.value))} type="number" placeholder='0,00' />
+
+                    <label className='transfer__text__recipient'>Para quem deseja fazer a transferência?</label>
+                    <input className='transfer__input__recipient' value={recipient} onChange={e => setRecipient((e.target.value).trim())} type="text" placeholder='CPF do destinatário' />
+
+                    <button className={((value <= 0 || isNaN(value)) && recipient === "") ? 'transfer__button deposit__button--disable' : 'transfer__button'} disabled={((value <= 0 || isNaN(value)) && recipient === "")}>Confirmar</button>
+                </form>
+            }
+        </div>
     )
 }
 
