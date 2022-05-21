@@ -44,7 +44,7 @@ function AuthProvider({ children }) {
         
         const { data: { operacoes } } = await axios.get(`${apiUrl}/conta/extrato/${user.cpf}`)
                                             .catch(error => {
-                                                toast.error("Erro ao buscar transações")
+                                                toast.error("Erro ao buscar transações!")
                                                 console.error(error)
                                             })
                                             .finally(() => setLoading(false))
@@ -61,7 +61,7 @@ function AuthProvider({ children }) {
     const getBalance = async () => {
         const { data: { saldo } } = await axios.get(`${apiUrl}/conta/saldo/${user.cpf}`)
                                         .catch(error => {
-                                            toast.error("Erro ao buscar transações")
+                                            toast.error("Erro ao buscar saldo!")
                                             console.error(error)
                                         })
 
@@ -69,61 +69,50 @@ function AuthProvider({ children }) {
     }
 
     // REALIZAR TRANSAÇÕES
-    const transfer = async (recipient, value) => {
+    const operation = async (op, data) => {
         setLoading(true)
 
-        const data = {
-            remetente: user.cpf,
-            destinatario: recipient,
-            valor: value
-        }
-
-        await axios.post(`${apiUrl}/conta/operacao`, data)
-            .then(() => toast.success("Transferência realizada"))
-            .catch(error => {
-                toast.error(error)
-                console.log(error)
-            })
-
-        /*const data = {
-            remetente: user.cpf,
-            destinatario: "",
-            valor: value
-        }*/
-
-        /*switch (op) {
+        switch (op) {
             case "deposit":
-                data.destinatario = user.cpf
+                if (parseFloat(data.valor) < 0) {
+                    toast.info("Não é possível depositar um valor negativo!")
+                    break
+                }
 
                 await axios.post(`${apiUrl}/conta/operacao`, data)
-                    .then(() => toast.success("Transação realizada"))
+                    .then(() => toast.success("Depósito realizado!"))
                     .catch(error => {
-                        toast.error(error)
+                        toast.error("Erro ao realizar depósito!")
                         console.log(error)
                     })
 
-                console.log(data)    
                 break;
 
-            case "expense":
-                data.destinatario = "SAIDA"
-
+            case "withdraw":
+                if (parseFloat(data.valor) > balance) {
+                    toast.info("Saldo insuficiente para saque!")
+                    break
+                }
+                
                 await axios.post(`${apiUrl}/conta/operacao`, data)
-                    .then(() => toast.success("Transação realizada"))
-                    .catch(error => {
-                        toast.error(error)
-                        console.log(error)
-                    })
-                console.log(data)  
+                .then(() => toast.success("Saque realizado!"))
+                .catch(error => {
+                    toast.error("Erro ao realizar saque!")
+                    console.log(error)
+                })
+                
                 break;
-
+                
             case "transf":
-                data.destinatario = destiny
+                if (parseFloat(data.valor) > balance) {
+                    toast.info("Saldo insuficiente para transferência!")
+                    break
+                }
 
                 await axios.post(`${apiUrl}/conta/operacao`, data)
-                    .then(() => toast.success("Transação realizada"))
+                    .then(() => toast.success("Transferência realizada!"))
                     .catch(error => {
-                        toast.error(error)
+                        toast.error("Erro ao realizar transação!")
                         console.log(error)
                     })
 
@@ -131,10 +120,10 @@ function AuthProvider({ children }) {
         
             default:
                 break;
-        }*/
+        }
 
-        getBalance()
         setLoading(false)
+        getBalance()
     }
 
     // LOGIN
@@ -152,12 +141,16 @@ function AuthProvider({ children }) {
                         setUser(account)
                         storageUser(account)
 
-                        toast.success("Login realizado com sucesso")
+                        toast.success("Login realizado com sucesso!")
                     }
                 })
+
+                if (!user) {
+                    toast.error("Usuário não cadastrado!")
+                }
             })
             .catch(error => {
-                toast.error("Erro ao fazer login")
+                toast.error("Erro ao fazer login!")
                 console.error(error)
             })
             .finally(() => setLoading(false))
@@ -169,8 +162,43 @@ function AuthProvider({ children }) {
         setUser(null)
     }
 
+    //CADASTRO
+    const register = async (userData) => {
+        setLoading(true)
+
+        const { data } = await axios.get(`${apiUrl}/conta`)
+                
+        data.forEach(account => {
+            if ((userData.email === account.email) && (userData.cpf === account.cpf)){
+                toast.error("E-mail e CPF já cadastrados!")
+                return
+            }
+            if (userData.email === account.email) {                       
+                toast.error("E-mail já cadastrado!")
+                return
+            }
+            else if (userData.cpf === account.cpf) {
+                toast.error("CPF já cadastrado!")
+                return
+            }
+        })
+
+        await axios.post(`${apiUrl}/conta`, userData)
+            .then(() => {
+                toast.success("Usuário Cadastrado!")
+
+                setUser(userData)
+                storageUser(userData)
+            })
+            .catch(error => {
+                toast.error("Erro ao cadastrar usuário!")
+                console.log(error)
+            })
+            .finally(() => setLoading(false))
+    }
+
     return (
-        <AuthContext.Provider value={{signed: !!memorizedUser, loading, balance, login, logout, getTransations, getBalance, transfer}}>
+        <AuthContext.Provider value={{signed: !!memorizedUser, user, loading, balance, login, logout, getTransations, getBalance, operation, register}}>
             { children }
         </AuthContext.Provider>
     )

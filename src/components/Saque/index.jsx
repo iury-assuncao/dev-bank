@@ -7,14 +7,29 @@ import './saque.css';
 
 const Saque = () => {
 
-    const [value, setValue] = useState()
+    const [value, setValue] = useState("")
 
-    const { loading, operation } = useContext(AuthContext)
+    const { user: { cpf }, loading, operation } = useContext(AuthContext)
 
     const handleOperation = async (e) => {
         e.preventDefault()
 
-        await operation("expense", value.toFixed(2))
+        const data = {
+            remetente: cpf,
+            destinatario: "12345678912",
+            valor: value.toFixed(2)
+        }
+
+        await operation("withdraw", data)
+    }
+
+    const handleChangeValue = (e) => {
+        if (e === "") {
+            setValue("")
+        }
+        else {
+            setValue(parseFloat(e))
+        }
     }
 
     return(
@@ -25,9 +40,9 @@ const Saque = () => {
                 :
                     <div className='container__withdraw'>
                         <form className='withdraw' onSubmit={handleOperation}>
-                            <p className='withdraw__text'>Qual é o valor do seu saque?</p>
-                            <input className='withdraw__input' value={value} onChange={e => setValue(parseFloat(e.target.value))} type="number" placeholder='0,00' />
-                            <button className={(value <= 0 || isNaN(value)) ? 'withdraw__button withdraw__button--disable' : 'withdraw__button' } type='submit' disabled={(value <= 0 || isNaN(value))}>Sacar</button>
+                            <label className='withdraw__text'>Qual é o valor do seu saque?</label>
+                            <input className='withdraw__input' value={value} onChange={e => handleChangeValue(e.target.value)} type="number" placeholder='0,00' />
+                            <button className='withdraw__button' type='submit' disabled={value <= 0 || isNaN(value)}>Sacar</button>
                         </form>
                     </div>
             }   

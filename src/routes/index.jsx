@@ -20,7 +20,7 @@ function Rotas() {
                 } />
             </Route>
 
-            <Route path="/" element={<WatchLogin />}>
+            <Route path="/register" element={<WatchLogin />}>
                 <Route path="/register" element={
                     <Suspense fallback={<Loading />}>
                         <Register />

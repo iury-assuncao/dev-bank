@@ -52,7 +52,7 @@
     width: 100px;
 }
 
-.deposit__button--disable {
+.deposit__button:disabled {
     cursor: not-allowed;
 }
 

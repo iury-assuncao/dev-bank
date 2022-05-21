@@ -52,7 +52,7 @@
     width: 100px;
 }
 
-.withdraw__button--disable {
+.withdraw__button:disabled {
     cursor: not-allowed;
 }
 
