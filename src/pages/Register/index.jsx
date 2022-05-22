@@ -59,7 +59,7 @@ function Register() {
                             <input className="register__handleInput register__handleInput--medium" type='password' value={password} onChange={e => setPassword(e.target.value)} placeholder='Senha' required/>
                             <input className="register__handleInput register__handleInput--medium" type='password' value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder='Confirme sua senha' required/>
                         </fieldset>
-                        <button className="register__button" type="submit">Acessar</button>
+                        <button className="register__button" type="submit">Cadastrar</button>
                         
                         <p className="register__text">Já possui uma conta?</p>
                         <Link to="/" className="register__link">Entre</Link>

@@ -145,7 +145,7 @@ function AuthProvider({ children }) {
                     }
                 })
 
-                if (!user) {
+                if (email != email) {
                     toast.error("Usuário não cadastrado!")
                 }
             })
@@ -186,6 +186,7 @@ function AuthProvider({ children }) {
         await axios.post(`${apiUrl}/conta`, userData)
             .then(() => {
                 toast.success("Usuário Cadastrado!")
+                toast.success('Você ganhou mil reais do nosso banco!')
 
                 setUser(userData)
                 storageUser(userData)
@@ -204,4 +205,4 @@ function AuthProvider({ children }) {
     )
 }
 
-export default AuthProvider
+export default AuthProvider;
