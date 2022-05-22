@@ -1,41 +1,55 @@
-import './header.css';
-
 import { FiSettings } from "react-icons/fi";
 import { MdOutlineExitToApp } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useContext, useEffect } from 'react';
+import { AuthContext } from '../../contexts/auth';
 
+import './header.css';
 
 const Header = () => {
-    
+    const { balance, logout, getBalance } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logout()
+    }
+
+    // CARREGAR SALDO
+    useEffect(() => {
+        const loadBalance = async () => {
+            await getBalance()
+        }
+
+        loadBalance()
+    }, [])
 
     return(
         <header>
              
-            <div>
+            <section>
                 <span className="balance">Saldo</span>
                 <span className="balance__rs">R$</span>
-                <span className="balance__value">654,00</span>
-            </div>
+                <span className="balance__value">{balance}</span>
+            </section>
 
-            <div className="user__options">
+            <section className="user__options">
                 <div className="user">
                     <span className="user__hello">Olá,</span>
                     <span className="name__user">Fulano</span>
                 </div>
                 <div className="line"></div>
 
-                <div class="dropdown">
+                <div className="dropdown">
                     <FiSettings className="setting__icon" />
 
-                    <div class="dropdown-content">
+                    <div className="dropdown-content">
 
                         <Link to="edituser" className="drop__link">
                             <FaUserEdit className="icon" />
                             <span className="drop__span">Editar Perfil</span>
                         </Link>
 
-                        <Link to="/" className="drop__link"> 
+                        <Link to="/" onClick={() => handleLogout()} className="drop__link"> 
                             <MdOutlineExitToApp className="icon"/>
                             <span className="drop__span">Sair</span>
                         </Link>
@@ -43,8 +57,7 @@ const Header = () => {
                         
                     </div>
                 </div>  
-                
-            </div>
+            </section>
         </header>
         
     )

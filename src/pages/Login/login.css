@@ -47,6 +47,12 @@
     font-size: 1.5em;
     outline: none;
 }
+
+.login__handleInput::placeholder{
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 1.4rem;
+}
   
   
 .login__button{
@@ -56,7 +62,6 @@
     border: none;
     border-radius: 15px;
     color: #FFFFFF;
-    font-family: 'Poppins';
     cursor: pointer;
     opacity: 0.8; 
     transition: all 0.2s;
@@ -80,16 +85,16 @@
 .login__link{
     color: #FC5700;
     text-align: center; 
-    font-family: 'Poppins';
     font-weight: 400;
     font-size: 1.2em;
     font-style: normal;
 }
 
-@media (max-width: 376px){
+@media (max-width: 500px){
     .login{
-        width: 300px;
-        padding: 1em 1em;
+        width: 90%;
+        padding: 2rem;
     }
+
 }
 

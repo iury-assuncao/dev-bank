@@ -1,0 +1,98 @@
+.container__transfer{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 12rem;
+}
+
+.transfer{
+    align-items: center;
+    background-color: var(--gray);
+    border-radius: 30px;
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap:3rem;
+    padding: 4rem 2rem;
+}
+
+.transfer__text{
+    color: var(--orange);
+    font-size: 2em;
+    top: 1em;
+}
+
+.transfer__input__value{
+    background-color: var(--gray);
+    border: none;
+    border-bottom: 2px solid var(--orange);
+    color: var(--blue);
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    outline: none;
+    top: 3.5em;
+}
+
+.transfer__input__value::placeholder{
+    color: var(--blue);
+}
+
+.transfer__text__recipient{
+    color: var(--orange);
+    font-size: 2em;
+    top: 1em;
+}
+
+.transfer__input__recipient{
+    background-color: var(--gray);
+    border: none;
+    border-bottom: 2px solid var(--orange);
+    color: var(--blue);
+    text-align: center;
+    font-size:2em;
+    font-weight: bold;
+    outline: none;
+    top: 3.5em;
+}
+
+.transfer__input__recipient::placeholder{
+    color: var(--blue);
+    
+}
+
+.transfer__button{
+    background: linear-gradient(241.69deg, #FF5800 7.46%, rgba(252, 87, 0, 0.44) 156.38%);
+    border: none;
+    border-radius: 15px;
+    color: var(--white);
+    cursor: pointer; 
+    font-weight: 300;
+    padding: 1em;
+    top: 10em;
+    transition: all 0.2s;
+    width: 100px;
+}
+
+.transfer__button:disabled {
+    cursor: not-allowed;
+}
+
+.transfer__button:hover{
+    transform: scale(0.95);
+    opacity: 1;
+}
+
+@media (max-width: 376px){
+
+    .container__transfer{
+        margin-top: 5rem;
+    }
+    .transfer{
+       width: 300px; 
+    }
+    .transfer__text__recipient{
+        text-align: center;
+    }
+}
