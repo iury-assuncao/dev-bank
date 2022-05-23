@@ -4,6 +4,7 @@ import Loading from "../components/Loading"
 
 import WatchLogin from "./WatchLogin"
 
+const LandingPage = lazy(() => import('../pages/LadingPage'))
 const Login = lazy(() => import("../pages/Login"))
 const Register = lazy(() => import("../pages/Register"))
 const Dashboard = lazy(() => import("../pages/Dashboard"))
@@ -11,9 +12,20 @@ const NotFound = lazy(() => import("../pages/NotFound"))
 
 function Rotas() {
     return (
+
         <Routes>
+
             <Route path="/" element={<WatchLogin />}>
                 <Route path="/" element={
+                  <Suspense fallback={<Loading />}>
+                    <LandingPage/>
+                </Suspense>
+            } />
+            </Route>
+
+
+            <Route path="/login" element={<WatchLogin />}>
+                <Route path="/login" element={
                     <Suspense fallback={<Loading />}>
                         <Login />
                     </Suspense>

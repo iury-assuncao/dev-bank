@@ -62,7 +62,7 @@ function Register() {
                         <button className="register__button" type="submit">Cadastrar</button>
                         
                         <p className="register__text">Já possui uma conta?</p>
-                        <Link to="/" className="register__link">Entre</Link>
+                        <Link to="/login" className="register__link">Entre</Link>
                     </form>
             }
         </div>
