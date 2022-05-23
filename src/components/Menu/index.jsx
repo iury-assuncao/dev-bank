@@ -3,7 +3,7 @@ import logo from "../../img/devBank-logo.png"
 import { useState } from "react"
 import { RiFileList3Line } from 'react-icons/ri'
 import { BiTransfer } from 'react-icons/bi'
-import { BsCashCoin, BsCashStack, BsCreditCard } from 'react-icons/bs'
+import { BsCashCoin, BsCashStack } from 'react-icons/bs'
 
 import "./menu.css"
 
@@ -39,10 +39,6 @@ const Menu = () => {
                     <Link to="transferencia" className="menu__link">
                         <BiTransfer className="menu__icon" />
                         <span className="menu__span">Transferência</span>
-                    </Link>
-                    <Link to="cartoes" className="menu__link">
-                        <BsCreditCard className="menu__icon" />
-                        <span className="menu__span">Cartões</span>
                     </Link>
                 </nav>
             </div>
