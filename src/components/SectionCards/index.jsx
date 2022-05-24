@@ -6,7 +6,7 @@ const SectionCards = () => {
     return(
         <section className="section__cards">
             <div>
-                <h2 className="title_beneficies">Benefícios em ser devBank</h2>
+                <h2 className="title_beneficies">Benefícios em ser DevBank</h2>
                 <div className="line"></div>
             </div>
 

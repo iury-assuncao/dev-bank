@@ -23,6 +23,8 @@ const Header = () => {
         loadBalance()
     }, [])
 
+    const userName = JSON.parse(localStorage.getItem('usuario')).nome
+ 
     return(
         <header>
              
@@ -35,7 +37,7 @@ const Header = () => {
             <section className="user__options">
                 <div className="user">
                     <span className="user__hello">Olá,</span>
-                    <span className="name__user">Fulano</span>
+                    <span className="name__user">{userName}</span>
                 </div>
                 <div className="line"></div>
 
