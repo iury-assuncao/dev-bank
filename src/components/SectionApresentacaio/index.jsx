@@ -3,13 +3,15 @@ import woman from '../../img/woman.svg'
 
 const SectionApresentacao = () =>{
     return(
-        <div className='section__container'>
+        <section className='section__container'>
             <div className='section__container__text'>
-                <p className='section__text'>O seu banco de contas digitais na palma da sua mão!</p>
-                <a className='section__button' href="">Saiba mais</a>
+                <h1 className='section__text'>O seu banco na palma da sua mão!</h1>
+                <a className='section__button' href="#">Saiba mais</a>
             </div>
-            <img className='section__image' src={woman}/>
-        </div>
+            <div className='section__image'>
+                <img src={woman} alt="Mulher alegre com o celular"/>
+            </div>
+        </section>
     );
 }
 
