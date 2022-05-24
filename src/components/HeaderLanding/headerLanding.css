@@ -7,6 +7,9 @@
     justify-content: space-between;
     position: fixed;
     width:100%;
+    z-index: 10;
+    background-color: #fff;
+    top:0;
     
 }
 
@@ -28,7 +31,7 @@
 
 .link__login:hover{
     color: var(--blue);
-    transition: 0.4s;
+    transition: all 0.4s;
 }
 .link__cadastre-se{
     border: 1px solid #FC5700;
