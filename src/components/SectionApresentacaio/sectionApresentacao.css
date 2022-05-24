@@ -1,0 +1,33 @@
+.section__container{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 100%;
+}
+
+.section__container__text{
+ background: linear-gradient(241.69deg, #FF5800 7.46%, rgba(252, 87, 0, 0.44) 156.38%);
+ margin-top: 80px;
+ padding: 2.5em;
+ text-align: left;
+ width: 50%;
+}
+
+.section__container__text{
+    color: var(--white);
+    font-size: 6em;
+}
+
+.section__button{
+    background-color: var(--white);
+    border: 2px solid var(--white);
+    color: var(--orange);
+    font-size: 16px;
+    padding: 1em;
+}
+
+.section__image{
+    margin-top: 80px;
+    width: 50%;
+}
+
