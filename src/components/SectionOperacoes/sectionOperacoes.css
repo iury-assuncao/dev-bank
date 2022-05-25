@@ -1,5 +1,6 @@
 .container__operations{
     display: flex;
+    margin-top: 11rem;
 }
 
 .container__operations img{
@@ -11,7 +12,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 2em;
     align-items: center;
     width: 50%;
 }
@@ -36,8 +36,35 @@
     font-size: 2em;
     height: 60px;
     justify-content: center;
-    width: 250px;
+    width: 25rem;
 }
+
+@media (max-width:780px){
+    .container__operations{
+        flex-direction: column;
+        margin-top: 6rem;
+    }
+
+    .container__operations img{
+        width: 90%;
+        border-radius: 30px;
+        margin: auto;
+    }
+
+    .operations{
+        width: 100%;
+        height: 55vh;
+    }
+
+    .operations__title{
+        font-size: 2.4rem;
+    }
+
+    .operations__text{
+        width: 20rem;
+        font-size: 1.8rem;
+    }
+}   
 
 
 
