@@ -2,16 +2,18 @@
     display: flex;
     width: 100%;
     z-index: 1;
-    
+    margin-top: 8rem;
 }
 
 .section__container__text{
     background: var(--linear-orange);
     text-align: left;
     width: 50%;
-    height: 100vh;
-    padding: 23rem 8rem;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem;
+        
 }
 
 .section__container__text h1{
@@ -19,14 +21,18 @@
     font-weight: 500;
     font-size: 4.8rem;
     margin-bottom: 5rem;
+    
 }
 
 .section__button{
     background-color: var(--white);
     font-size: 1.6rem;
-    padding: 1em 2em;
     color: var(--orange);
     font-weight: 400;
+    width: 19rem;
+    text-align: center;
+    padding: 2rem 0;
+    
 }
 
 .section__button:hover{
@@ -36,13 +42,49 @@
 }
 
 .section__image{
-    height: 100vh;
     width: 50%;
     overflow-y: hidden;
+    height: 90vh;
 }
 
 .section__image img{
     width: 100%;
     
+}
+
+@media (max-width:900px){
+    .section__container{
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        background: url("../../img/woman.svg") no-repeat center center/cover;
+    }
+
+    .section__container__text{
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        padding: 5rem;
+        text-align: center;
+    }
+
+    
+
+    .section__image{
+        display: none;
+    }
+}
+
+@media (max-width:425px){
+    .section__container__text h1{
+        font-size: 3rem;
+    }
+
+    .section__button{
+        font-size: 1.4rem;
+        width: 15rem;
+        padding: 1.8rem 0;
+        
+    }
 }
 
