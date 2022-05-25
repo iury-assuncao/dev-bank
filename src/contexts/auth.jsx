@@ -35,14 +35,14 @@ function AuthProvider({ children }) {
     }
 
     // BUSCAR EXTRATO DAS TRANSAÇÕES
-    const getTransations = async () => {
+    const getTransations = async (month) => {
         setLoading(true)
 
         if (!user) {
             return
         }
         
-        const { data: { operacoes } } = await axios.get(`${apiUrl}/conta/extrato/${user.cpf}`)
+        const { data: { operacoes } } = await axios.get(`${apiUrl}/conta/extrato/${user.cpf}?mes=${month}`)
                                             .catch(error => {
                                                 toast.error("Erro ao buscar transações!")
                                                 console.error(error)
@@ -53,7 +53,7 @@ function AuthProvider({ children }) {
             item.valor = parseFloat(item.valor).toFixed(2)
             item.data = new Date(item.data)
         })
-
+        
         return operacoes
     }
 
