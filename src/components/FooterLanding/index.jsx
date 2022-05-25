@@ -1,8 +1,6 @@
 import "./footerLanding.css";
 
-function getData(){
-
-}
+let ano = new Date();
 
 const FooterLanding = () => {
     return(
@@ -28,7 +26,7 @@ const FooterLanding = () => {
             </section>
 
         </section>
-        <section className="copy">© 2022 devBank Inc. All rights reserved.</section>
+        <section className="copy">© {ano.getFullYear()} devBank Inc. All rights reserved.</section>
         </footer>
     )
 }
