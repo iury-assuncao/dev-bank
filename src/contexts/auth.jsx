@@ -135,17 +135,19 @@ function AuthProvider({ children }) {
         await axios.post(`${apiUrl}/login`, loginData)
             .then(async () => {
                 const { data } = await axios.get(`${apiUrl}/conta`)
+                let userFound = false
                 
                 data.forEach(account => {
                     if (account.email === email) {                       
                         setUser(account)
                         storageUser(account)
 
+                        userFound = true
                         toast.success("Login realizado com sucesso!")
                     }
                 })
 
-                if (email != email) {
+                if (!userFound) {
                     toast.error("Usuário não cadastrado!")
                 }
             })
