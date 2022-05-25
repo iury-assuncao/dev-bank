@@ -4,12 +4,12 @@ import mulher from '../../img/mulher.svg'
 const SectionOperacoes = () =>{
     return(
         <div className='container__operations'>
-            <img src={mulher} />
+            <img src={mulher} alt="Mulher com o celular"/>
             <div className='operations'>
-                <p className='operations__title'>Operações ilimitadas</p>
-                <p className='operations__text__withdraw'>Saque</p>
-                <p className='operations__text__deposit'>Depósito</p>
-                <p className='operations__text__transfer'>Transferência</p>
+                <h2 className='operations__title'>Operações ilimitadas</h2>
+                <span className='operations__text'>Saque</span>
+                <span className='operations__text'>Depósito</span>
+                <span className='operations__text'>Transferência</span>
             </div>
         </div>
     );
