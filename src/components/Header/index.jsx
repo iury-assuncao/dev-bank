@@ -8,7 +8,7 @@ import { AuthContext } from '../../contexts/auth';
 import './header.css';
 
 const Header = () => {
-    const { balance, logout, getBalance } = useContext(AuthContext)
+    const { balance, user: { nome }, logout, getBalance } = useContext(AuthContext)
 
     const handleLogout = () => {
         logout()
@@ -23,7 +23,7 @@ const Header = () => {
         loadBalance()
     }, [])
 
-    const userName = JSON.parse(localStorage.getItem('usuario')).nome
+    const userName = nome.split(" ")[0]
  
     return(
         <header>
