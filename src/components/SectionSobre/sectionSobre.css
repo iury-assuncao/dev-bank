@@ -1,0 +1,28 @@
+.on{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    padding: 10em;
+
+}
+
+.on__title{
+    background: linear-gradient(211.13deg, #003070 12.54%, rgba(0, 48, 112, 0.62) 91.76%);
+    background-clip: text;
+    border-bottom: 4px  solid var(--orange);
+    font-size: 3em;
+    text-align: center;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    width: 8em;
+}
+
+.on__text__one{
+    color: var(--blue);
+    font-size: 2em;
+    padding: 2em;
+    width: 50em;
+    
+}
