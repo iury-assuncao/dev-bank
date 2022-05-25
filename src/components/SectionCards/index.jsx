@@ -7,7 +7,6 @@ const SectionCards = () => {
         <section className="section__cards">
             <div>
                 <h2 className="title_beneficies">Benefícios em ser DevBank</h2>
-                <div className="line"></div>
             </div>
 
             <div className="cards">

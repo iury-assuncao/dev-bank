@@ -1,7 +1,8 @@
 import './landingPage.css';
 import HeaderLanding from '../../components/HeaderLanding';
-import SectionApresentacao from '../../components/SectionApresentacaio';
+import SectionApresentacao from '../../components/SectionApresentacao';
 import SectionCards from '../../components/SectionCards';
+import SectionOperacoes from '../../components/SectionOperacoes';
 
 const LandingPage = () =>{
     return(
@@ -9,7 +10,7 @@ const LandingPage = () =>{
             <HeaderLanding />
             <SectionApresentacao/>
             <SectionCards />
-
+            <SectionOperacoes/>
         </div>
     );
 }
