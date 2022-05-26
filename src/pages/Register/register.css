@@ -116,7 +116,7 @@
     .register{
         width: 90%;
         padding: 2rem;
-        height: 80vh;
+        
     }
     .register__fieldset{
         display: grid;
