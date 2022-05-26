@@ -8,54 +8,44 @@ import "./extrato.css"
 const Extrato = () => {
 
     const [transations, setTransations] = useState([])
-    const [transationsByMonth, setTransationsByMonth] = useState([])
     const [month, setMonth] = useState(0)
 
     const { loading, getTransations } = useContext(AuthContext)
 
     useEffect(() => {
-        const loadTransations = async () => {
-            setTransations(await getTransations())
-            setMonth(new Date(Date.now()).getMonth())
-        }
-
-        loadTransations()
+        setMonth(new Date(Date.now()).getMonth() + 1)
     }, [])
 
     useEffect(() => {
-        const transationsNew = []
-        
-        transations.forEach(item => {
-            if ((item.data).getMonth() === parseInt(month)) {
-                transationsNew.push(item)
-            }
-        })
+        const loadTransations = async () => {
+            setTransations(await getTransations(month))
+        }
 
-        setTransationsByMonth(transationsNew)
-    }, [month, transations])
+        loadTransations()
+    }, [month])
 
     return(
         <div className="statement">
             <select className="statement__month" value={month} onChange={e => setMonth(e.target.value)}>
-                <option value={0}>Janeiro</option>
-                <option value={1}>Fevereiro</option>
-                <option value={2}>Março</option>
-                <option value={3}>Abril</option>
-                <option value={4}>Maio</option>
-                <option value={5}>Junho</option>
-                <option value={6}>Julho</option>
-                <option value={7}>Agosto</option>
-                <option value={8}>Setembro</option>
-                <option value={9}>Outubro</option>
-                <option value={10}>Novembro</option>
-                <option value={11}>Dezembro</option>
+                <option value={1}>Janeiro</option>
+                <option value={2}>Fevereiro</option>
+                <option value={3}>Março</option>
+                <option value={4}>Abril</option>
+                <option value={5}>Maio</option>
+                <option value={6}>Junho</option>
+                <option value={7}>Julho</option>
+                <option value={8}>Agosto</option>
+                <option value={9}>Setembro</option>
+                <option value={10}>Outubro</option>
+                <option value={11}>Novembro</option>
+                <option value={12}>Dezembro</option>
             </select>
 
             {
                 loading
                 ? <Loading />
                 :
-                transationsByMonth.length === 0
+                transations.length === 0
                     ? <h2>Sem transações</h2>
                     : 
                     <table className="statement__list">
@@ -68,7 +58,7 @@ const Extrato = () => {
                         </thead>
                         <tbody className="statement__list-content">
                             {
-                                transationsByMonth.map(item => {
+                                transations.map(item => {
                                     return (
                                         <tr key={item._id}>
                                             <td className={item.tipo === "ENTRADA" ? "statement__value--income" : "statement__value--expense"}>{item.valor}</td>

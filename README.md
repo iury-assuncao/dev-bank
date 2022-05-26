@@ -1,71 +1,69 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<div align="center"><img width="300px"src="./public/img_readme/devBank_logo.png"></div>
+<br>
 
-### `npm start`
+<div>
+<img width="500px"src="./public/img_readme/landing.gif">
+<img width="500px"src="./public/img_readme/login.png">
+<img width="500px"src="./public/img_readme/register.png">
+<img width="500px"src="./public/img_readme/dashboard.png">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h1> Sobre 🔖</h1>
 
-### `npm run build`
+<p>
+O projeto devBank foi desenvolvido para o desafio final do programa de formação trade4Devs da TraderMaster com parceria com a plataforma Do Zero ao Um da MaithaTech. Nesse desafio recebemos uma API para consumir, sendo os requisidos: tela de cadastro, tela de login, saldo, extrato e transferência, com remetente e distinatário.
+</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
+<h1> Tecnologias Utilizadas 🚀</h1>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h3>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ • <a href="https://pt-br.reactjs.org" target="_blank">React</a> <br>
+ • <a href="https://www.npmjs.com" target="_blank">NPM</a> <br>
+ • <a href="https://axios-http.com/ptbr/docs/intro" target="_blank">Axios</a><br>
+ 
+</h3>
 
-### `npm run eject`
+<br>
+<h1> Instalação e execução 🔧</h1>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p> Para fazer a instalação você deve ter o git e npm instalado em sua máquina</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p> 1. Para baixar o projeto siga as instruções abaixo:</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+ git clone https://github.com/iury-assuncao/dev-bank.git
+```
 
-## Learn More
+<p> 2. Acesse o repositório </p> 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+ cd dev-bank
+```
+<p>3. Instale as dependências </p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+ npm install
+```
 
-### Code Splitting
+<p>4. Inicie o servidor </p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+npm start
+```
 
-### Analyzing the Bundle Size
+<p> O servidor inciará na porta: 3000 - acesse <a href="http://localhost:3000">http://localhost:3000</a> no seu navegador </p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<h1> Desenvolvedores ⌨️</h1>
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# dev-bank
+ • <a href="https://github.com/Aguimar-Junior" target="_blank">Aguimar Junior</a> <br>
+ • <a href="https://github.com/gustavobiolcatti" target="_blank">Gustavo Biolcatti </a><br>
+ • <a href="https://github.com/iury-assuncao" target="_blank">Iury Assunção</a><br>

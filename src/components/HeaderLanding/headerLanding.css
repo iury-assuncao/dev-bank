@@ -1,0 +1,116 @@
+.header__landing{
+    height: 8rem;
+    box-shadow:0px 8px 18px rgba(0, 0, 0, 0.16);
+    display: flex;
+    align-items: center;
+    padding: 0 6rem;
+    justify-content: space-between;
+    position: fixed;
+    width:100%;
+    z-index: 10;
+    background-color: #fff;
+    top:0;
+    
+}
+
+.logo__header{
+    width: 20rem;
+    height: 3.7rem;
+}
+
+.mobile__menu{ 
+    cursor: pointer;
+    display:none;
+   
+}
+
+.mobile__menu div{
+    width: 32px;
+    height: 2px;
+    background: rgb(31, 31, 31);
+    margin: 6px;
+    transition: 0.3s;
+    
+}
+
+.ul__header{
+    display: flex;
+    gap:5rem;
+
+}
+
+.link__login{
+    font-size: 1.6rem;
+    color: var(--orange);
+}
+
+.link__login:hover{
+    color: var(--blue);
+    transition: all 0.4s;
+}
+.link__cadastre-se{
+    border: 1px solid #FC5700;
+    background-color: none;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: var(--orange);
+    padding: 1.2rem 1.6rem;
+}
+
+.link__cadastre-se:hover{
+    background-color: var(--orange);
+    color: #fff;
+    transition: 0.4s;
+}
+
+@media (max-width:600px){
+    .header__landing{
+        padding: 0 2rem;
+    }
+    .mobile__menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 8rem;
+        width: 5rem;
+    }
+
+    .nav__list{
+        position: absolute;
+        width: 50%;
+        height: calc(100vh - 8rem);
+        right: 0;
+        top:8rem;
+        display: flex;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in;
+        background: var(--gray);
+        align-items: center;
+    }
+
+    .nav__list.active{
+        transform: translateX(0);
+    }
+
+    .ul__header{
+        flex-direction: column;
+        height: 50%;
+        text-align: center;
+        justify-content: space-evenly;
+    }
+
+    .mobile__menu.active .line1{
+        transform: rotate(-45deg) translate(-10px, 9px);
+    }
+    .mobile__menu.active .line2{
+        opacity: 0;
+        
+    }
+    .mobile__menu.active .line3{
+        transform: rotate(45deg) translate(-10px, -10px);
+    }
+
+
+}

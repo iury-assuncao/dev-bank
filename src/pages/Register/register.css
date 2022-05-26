@@ -42,7 +42,7 @@
     padding: 0;
     margin: 0;
     border: none;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 12px;
 }
 
@@ -54,21 +54,21 @@
     border-radius: 15px;
     font-size: 1.5em;
     outline: none;
+    grid-column: span 2;
 }
 
 .register__handleInput::placeholder{
     font-family: 'Poppins';
     font-weight: 300;
     font-size: 1.4rem;
-    
 }
 
 .register__handleInput--medium {
-    grid-column: span 2;
+    grid-column: span 3;
 }
 
 .register__handleInput--large {
-    grid-column: span 3;
+    grid-column: span 4;
 }
   
 .register__button{
@@ -116,7 +116,7 @@
     .register{
         width: 90%;
         padding: 2rem;
-        height: 80vh;
+        
     }
     .register__fieldset{
         display: grid;

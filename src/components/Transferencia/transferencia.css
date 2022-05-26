@@ -75,20 +75,21 @@
     width: 100px;
 }
 
-.deposit__button--disable {
+.transfer__button:disabled {
     cursor: not-allowed;
 }
 
+.transfer__button:hover{
+    transform: scale(0.95);
+    opacity: 1;
+}
 
-@media (max-width: 376px){
-
+@media (max-width: 460px){
     .container__transfer{
         margin-top: 5rem;
     }
     .transfer{
        width: 300px; 
-    }
-    .transfer__text__recipient{
-        text-align: center;
+       text-align: center;
     }
 }
