@@ -26,7 +26,18 @@
 .footer__text{
     font-weight: 400;
     font-size: 1.8rem;
-    
+    color: var(--white);
+}
+
+.footer__link{
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+.footer__link:hover{
+    color: var(--orange);
+    transition: all 0.4s;
 }
 
 .copy{

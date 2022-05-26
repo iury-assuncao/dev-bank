@@ -4,12 +4,12 @@
     align-items: center;
     margin-top:11rem;
     gap: 7rem;
+    
 }
 
 .title_beneficies{
     font-weight: 400;
     font-size: 3.2rem;
-    line-height: 48px;
     background: linear-gradient(211.13deg, #003070 12.54%, rgba(0, 48, 162, 0.62) 91.76%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -18,39 +18,35 @@
 }
 
 .cards{
-    width: 100%;
     display: flex;
     justify-content: center;
     gap:6rem;
+    
 }
 
 @media (max-width:900px){
     .section__cards{
-        align-items: flex-start;
         gap: 5rem;
-        margin-top: 6rem;
-                        
+        margin-top: 6rem; 
     }
 
     .title_beneficies{
-        
         line-height: 100px;
-        height: 7rem;
         margin-left: 3rem;
-        
+        line-height: 30px;
     }
 
     .cards{
         justify-content: flex-start;
-        overflow-x: auto;
-        width: 90rem;
         padding: 3rem;
         gap: 3rem;
-        
+        overflow: auto;
+        width: 100%;
     }
 }
 @media (max-width:780px){
     .title_beneficies{
         font-size: 2.4rem;
+
     }
 }
