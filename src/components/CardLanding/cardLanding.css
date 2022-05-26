@@ -2,7 +2,6 @@
     background: var(--linear-blue);
     padding: 3.1rem 2.3rem;
     width: 26.2rem;
-    height: 26.2rem;
     display: flex;
     flex-direction: column;
     color: var(--white);
@@ -21,10 +20,15 @@
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 24px;
+    width: 22rem;
 }
 
 @media(max-width:900px){
     .card{
         gap:2rem;
+        width: 30rem;
+    }
+    .card p{
+        width: 18rem;
     }
 }

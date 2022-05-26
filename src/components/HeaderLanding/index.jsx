@@ -20,7 +20,7 @@ const HeaderLanding = () => {
                 <div className="line3"></div>
             </div>
 
-            <nav class={active ? 'nav__list active' : 'nav__list'}>
+            <nav className={active ? 'nav__list active' : 'nav__list'}>
                 <ul className="ul__header">
                     <li><Link to="/login" className="link__login">Login</Link></li>
                     <li><Link to="/register" className="link__cadastre-se">Cadastre-se</Link></li>
