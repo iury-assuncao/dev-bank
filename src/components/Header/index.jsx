@@ -27,7 +27,6 @@ const Header = () => {
  
     return(
         <header>
-             
             <section>
                 <span className="balance">Saldo</span>
                 <span className="balance__rs">R$</span>

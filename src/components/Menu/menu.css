@@ -84,13 +84,13 @@
 
     .nav__content{
         width: 5rem;
-        
+        position: fixed;    
     }
+
     .menu__container{
         transform: translateX(-100%);
         transition: transform 0.3s ease-in;
         height: calc(100vh - 8rem);
-        
     }
 
     .menu__container.active{
