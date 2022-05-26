@@ -61,9 +61,8 @@
     opacity: 1;
 }
 
-@media (max-width: 460px){
+@media (max-width: 376px){
     .deposit{
         width: 300px;
-        text-align: center;
     }
 }
