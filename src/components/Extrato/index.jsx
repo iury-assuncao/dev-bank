@@ -8,13 +8,9 @@ import "./extrato.css"
 const Extrato = () => {
 
     const [transations, setTransations] = useState([])
-    const [month, setMonth] = useState(0)
+    const [month, setMonth] = useState(new Date(Date.now()).getMonth() + 1)
 
     const { loading, getTransations } = useContext(AuthContext)
-
-    useEffect(() => {
-        setMonth(new Date(Date.now()).getMonth() + 1)
-    }, [])
 
     useEffect(() => {
         const loadTransations = async () => {
