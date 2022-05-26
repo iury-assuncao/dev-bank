@@ -98,7 +98,7 @@
         flex-direction: column;
         height: 50%;
         text-align: center;
-        justify-content: space-evenly;
+        
     }
 
     .mobile__menu.active .line1{

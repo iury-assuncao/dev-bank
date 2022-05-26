@@ -1,14 +1,14 @@
 
 
 
-<div align="center"><img width="300px"src="./public/img_readme/devBank_logo.png"></div>
+<div align="center"><img width="200px"src="./public/img_readme/devBank_logo.png"></div>
 <br>
 
 <div>
-<img width="500px"src="./public/img_readme/landing.gif">
-<img width="500px"src="./public/img_readme/login.png">
-<img width="500px"src="./public/img_readme/register.png">
-<img width="500px"src="./public/img_readme/dashboard.png">
+<img width="350px"src="./public/img_readme/landing.gif">
+<img width="350px"src="./public/img_readme/login.png">
+<img width="350px"src="./public/img_readme/register.png">
+<img width="350px"src="./public/img_readme/dashboard.png">
 
 </div>
 
