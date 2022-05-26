@@ -27,13 +27,18 @@
 @media (max-width:900px){
     .section__cards{
         gap: 5rem;
-        margin-top: 6rem; 
+        margin-top: 6rem;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .title_beneficies{
         line-height: 100px;
-        margin-left: 3rem;
         line-height: 30px;
+        align-items: center;
+        justify-content: center;
     }
 
     .cards{
