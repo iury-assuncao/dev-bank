@@ -61,7 +61,7 @@
     opacity: 1;
 }
 
-@media (max-width: 376px){
+@media (max-width: 460px){
     .withdraw{
         width: 300px;
     }

@@ -2,12 +2,11 @@
     position: absolute;
     width: 100px;
     height: 100px;
-    top: 45%;
-    left: 50%;
     border: 6px solid #e5e5e5;
     border-radius: 50%;
     border-top-color: #003070;
     animation: rotate 1s infinite;
+    margin: auto;
 }
   
 @keyframes rotate{
