@@ -20,7 +20,7 @@ const FooterLanding = () => {
                 <h3 className="footer__title">Desenvolvedores</h3>
                 <div className="contact__footer">
                     <a href="https://www.linkedin.com/in/aguimar-junior" target="_blank" className="footer__link" rel="noreferrer">Aguimar Junior</a>
-                    <a href="https://www.linkedin.com/in/gustavobiolcatti" target="_blank" className="footer__link" rel="noreferrer">Gustavo Bielcatti</a>
+                    <a href="https://www.linkedin.com/in/gustavobiolcatti" target="_blank" className="footer__link" rel="noreferrer">Gustavo Biolcatti</a>
                     <a href="https://www.linkedin.com/in/iury-assunção-7377321b7/" target="_blank" className="footer__link" rel="noreferrer">Iury Assunção</a>
                 </div>
             </section>
