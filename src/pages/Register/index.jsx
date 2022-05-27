@@ -47,7 +47,9 @@ function Register() {
                 ? <Loading />
                 :
                     <form className="register" onSubmit={handleRegister}>
-                        <img src={logo} className="register__logo" alt="Logo DevBank"/>
+                        <Link to="/">
+                            <img src={logo} className="register__logo" alt="Logo DevBank"/>
+                        </Link>
                         <h1 className="register__title">Cadastro</h1>
 
                         <fieldset className="register__fieldset">

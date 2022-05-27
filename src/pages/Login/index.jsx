@@ -28,7 +28,9 @@ const Login = () => {
                 ? <Loading />
                 :
                     <form className="login" onSubmit={handleLogin}>
-                        <img src={logo} className="login__logo" alt="Logo DevBank"/>
+                        <Link to="/">
+                            <img src={logo} className="login__logo" alt="Logo DevBank"/>
+                        </Link>
                         <h1 className="login__title">Login</h1>
 
                         <input className="login__handleInput" type='email' value={email} onChange={e => setEmail(e.target.value.trim())} placeholder='E-mail' required/>
