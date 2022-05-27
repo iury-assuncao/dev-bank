@@ -8,7 +8,7 @@ const SectionSobre = () =>{
              que estavam cansados de enfrentar as enormes e longas filas nas agências.</p>
              
              <p className='on__text__one'>Aqui no devBank você resolve suas operações diretamente do seu computador ou smatphone, 
-             sem nenhuma buracracia. Tudo rápido e prático.</p>
+             sem nenhuma burocracia. Tudo rápido e prático.</p>
         </section>
     );
 }

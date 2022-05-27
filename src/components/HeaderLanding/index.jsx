@@ -12,7 +12,9 @@ const HeaderLanding = () => {
     return(
         <header className="header__landing">
 
-            <img src={logo} className="logo__header" alt="Logo DevBank"/>
+            <a href='#presentation'>
+                <img src={logo} className="logo__header" alt="Logo DevBank"/>
+            </a>
 
             <div className={active ? 'mobile__menu active' : 'mobile__menu'} onClick={toggleMode}>
                 <div className="line1"></div>
