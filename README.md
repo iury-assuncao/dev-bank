@@ -1,11 +1,11 @@
 
 
 
-<div align="center"><img width="200px"src="./public/img_readme/devBank_logo.png"></div>
+<div align="center"><img width="200px"src="./public/img_readme/devbank_logo.png"></div>
 <br>
 
-<div>
-<img width="350px"src="./public/img_readme/landing.gif">
+<div align="center">
+<img width="350px"src="./public/img_readme/landing.png">
 <img width="350px"src="./public/img_readme/login.png">
 <img width="350px"src="./public/img_readme/register.png">
 <img width="350px"src="./public/img_readme/dashboard.png">
