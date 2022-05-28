@@ -1,6 +1,6 @@
 import "./footerLanding.css";
 
-let ano = new Date();
+const ano = new Date();
 
 const FooterLanding = () => {
     return(
@@ -26,7 +26,7 @@ const FooterLanding = () => {
             </section>
 
         </section>
-        <section className="copy">© {ano.getFullYear()} devBank Inc. All rights reserved.</section>
+        <section className="copy">© {ano.getFullYear()} DevBank Inc. All rights reserved.</section>
         </footer>
     )
 }
