@@ -17,7 +17,7 @@
 <h1> Sobre 🔖</h1>
 
 <p>
-O projeto devBank foi desenvolvido para o desafio final do programa de formação trade4Devs da TraderMaster com parceria com a plataforma Do Zero ao Um da MaithaTech. Nesse desafio recebemos uma API para consumir, sendo os requisidos: tela de cadastro, tela de login, saldo, extrato e transferência, com remetente e distinatário.
+O projeto devBank foi desenvolvido para o desafio final do programa de formação trade4Devs da TraderMaster em parceria com a plataforma Do Zero ao Um da MaithaTech. Nesse desafio recebemos uma API para consumir, sendo os requisitos: tela de cadastro, tela de login, saldo, extrato e transferência, com remetente e destinatário.
 </p>
 
 <br>
