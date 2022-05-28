@@ -6,7 +6,7 @@ const WatchLogin = () => {
 
     const { signed } = useContext(AuthContext)
 
-    return signed ? <Navigate to="/dashboard" /> : <Outlet />
+    return signed ? <Navigate to="/dashboard/extrato" /> : <Outlet />
 }
 
 export default WatchLogin

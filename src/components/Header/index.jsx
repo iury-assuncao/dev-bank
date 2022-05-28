@@ -4,6 +4,7 @@ import { FaUserEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/auth';
+import { toast } from "react-toastify";
 
 import './header.css';
 
@@ -12,6 +13,10 @@ const Header = () => {
 
     const handleLogout = () => {
         logout()
+    }
+
+    const linkDisabled = () => {
+        toast.info("Opção ainda em construção!")
     }
 
     // CARREGAR SALDO
@@ -45,7 +50,7 @@ const Header = () => {
 
                     <div className="dropdown-content">
 
-                        <Link to="edituser" className="drop__link">
+                        <Link to="#" className="drop__link" onClick={() => linkDisabled()}>
                             <FaUserEdit className="icon" />
                             <span className="drop__span">Editar Perfil</span>
                         </Link>
