@@ -138,7 +138,7 @@ function AuthProvider({ children }) {
                 let userFound = false
                 
                 data.forEach(account => {
-                    if (account.email === email) {
+                    if (account.email === email) { // Verifica se a conta existe e salva no usuário
                         setUser(account)
                         storageUser(account)
 
@@ -170,6 +170,8 @@ function AuthProvider({ children }) {
 
         const { data } = await axios.get(`${apiUrl}/conta`)
                 
+
+        // Previne de cadastro em duplicidade
         data.forEach(account => {
             if ((userData.email === account.email) && (userData.cpf === account.cpf)){
                 toast.error("E-mail e CPF já cadastrados!")
@@ -185,6 +187,7 @@ function AuthProvider({ children }) {
             }
         })
 
+        // Cadastra a conta caso não tenha duplicidade
         await axios.post(`${apiUrl}/conta`, userData)
             .then(() => {
                 toast.success("Usuário Cadastrado!")
