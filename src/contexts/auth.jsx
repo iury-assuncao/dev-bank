@@ -134,11 +134,11 @@ function AuthProvider({ children }) {
 
         await axios.post(`${apiUrl}/login`, loginData)
             .then(async () => {
-                const { data } = await axios.get(`${apiUrl}/conta`)
+                const { data } = await axios.get(`${apiUrl}/conta`) // Busca contas cadastradas na API
                 let userFound = false
                 
                 data.forEach(account => {
-                    if (account.email === email) {                       
+                    if (account.email === email) {
                         setUser(account)
                         storageUser(account)
 
