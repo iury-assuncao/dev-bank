@@ -9,9 +9,27 @@ import "./menu.css"
 
 const Menu = () => {
     const [active, setActive] = useState(false);
+    const linkItems = document.querySelectorAll(".menu__link")
+
     const toggleMode = () => {
         setActive(!active);
     }
+
+    const removeSelectedLink = () => {
+        linkItems.forEach((item) => {
+            item.classList.remove("menu__link--selected")
+        })
+    }
+
+    const selectLink = (e) => {
+        removeSelectedLink()
+
+        e.currentTarget.classList.add("menu__link--selected")
+    }
+
+    linkItems.forEach((item) => {
+        item.addEventListener("click", selectLink)
+    })
     
     return (
         <div className="nav__content">
