@@ -54,7 +54,8 @@
     transition: .2s;
 }
 
-.menu__link.selected{
+.menu__link--selected{
+    border-left: 10px solid var(--blue);
     backdrop-filter: brightness(.95);
 }
 
