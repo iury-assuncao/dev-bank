@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import logo from "../../img/devBank-logo.png"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { RiFileList3Line } from 'react-icons/ri'
 import { BiTransfer } from 'react-icons/bi'
 import { BsCashCoin, BsCashStack } from 'react-icons/bs'
@@ -9,28 +9,29 @@ import "./menu.css"
 
 const Menu = () => {
     const [active, setActive] = useState(false);
-    const linkItems = document.querySelectorAll(".menu__link")
 
     const toggleMode = () => {
         setActive(!active);
     }
+    
+    const selectLink = (e) => {
+        const linkContainer = document.querySelectorAll(".menu__link")
 
-    const removeSelectedLink = () => {
-        linkItems.forEach((item) => {
+        linkContainer.forEach((item) => {
             item.classList.remove("menu__link--selected")
         })
-    }
-
-    const selectLink = (e) => {
-        removeSelectedLink()
-
+        
         e.currentTarget.classList.add("menu__link--selected")
     }
-
-    linkItems.forEach((item) => {
-        item.addEventListener("click", selectLink)
-    })
     
+    useEffect(() => {
+        const linkContainer = document.querySelectorAll(".menu__link")
+
+        linkContainer.forEach((item) => {
+            item.addEventListener("click", selectLink)
+        })
+    }, [])
+
     return (
         <div className="nav__content">
            <div className={active ? 'mobile__menu active' : 'mobile__menu'} onClick={toggleMode}>
@@ -42,7 +43,7 @@ const Menu = () => {
                 <img src={logo} className="menu__logo" alt="Logo DevBank" />
 
                 <nav className="menu">
-                    <Link to="extrato" className="menu__link">
+                    <Link to="extrato" className="menu__link menu__link--selected">
                         <RiFileList3Line className="menu__icon" />
                         <span className="menu__span">Extrato</span>
                     </Link>
