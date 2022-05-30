@@ -104,7 +104,19 @@ function AuthProvider({ children }) {
                 break;
                 
             case "transf":
-                if (parseFloat(data.valor) > balance) {
+                const accountsData = await axios.get(`${apiUrl}/conta`) // Busca contas cadastradas na API
+                const accounts = accountsData.data
+                let accountFound = false
+                
+                accounts.forEach(account => {
+                    if (account.cpf === data.destinatario) accountFound = true
+                })
+
+                if (!accountFound) {
+                    toast.error("Conta de destino não encontrada!")
+                    break
+                }
+                else if (parseFloat(data.valor) > balance) {
                     toast.info("Saldo insuficiente para transferência!")
                     break
                 }
