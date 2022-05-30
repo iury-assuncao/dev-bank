@@ -1,5 +1,6 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/auth';
+import { MenuContext } from "../../contexts/menu";
 
 import Loading from "../Loading"
 
@@ -11,6 +12,7 @@ const Transferencia = () => {
     const [recipient, setRecipient] = useState("")
 
     const { user: { cpf }, loading, operation } = useContext(AuthContext)
+    const { setLinkSelected } = useContext(MenuContext)
 
     const handleTransfer = async (e) => {
         e.preventDefault();
@@ -32,6 +34,8 @@ const Transferencia = () => {
             setValue(parseFloat(e))
         }
     }
+
+    useEffect(() => setLinkSelected("transferencia"), [])
 
     return(
         <div className='container__transfer'>

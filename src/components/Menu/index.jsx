@@ -1,36 +1,29 @@
 import { Link } from "react-router-dom"
 import logo from "../../img/devBank-logo.png"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { RiFileList3Line } from 'react-icons/ri'
 import { BiTransfer } from 'react-icons/bi'
 import { BsCashCoin, BsCashStack } from 'react-icons/bs'
+import { MenuContext } from "../../contexts/menu"
 
 import "./menu.css"
 
 const Menu = () => {
     const [active, setActive] = useState(false);
 
+    const { linkSelected, changeSelectedLink } = useContext(MenuContext)
+
     const toggleMode = () => {
         setActive(!active);
     }
-    
-    const selectLink = (e) => {
-        const linkContainer = document.querySelectorAll(".menu__link")
 
-        linkContainer.forEach((item) => {
-            item.classList.remove("menu__link--selected")
-        })
-        
-        e.currentTarget.classList.add("menu__link--selected")
-    }
-    
     useEffect(() => {
-        const linkContainer = document.querySelectorAll(".menu__link")
+        const changeLink = () => {
+            changeSelectedLink()
+        }
 
-        linkContainer.forEach((item) => {
-            item.addEventListener("click", selectLink)
-        })
-    }, [])
+        changeLink()
+    }, [linkSelected])
 
     return (
         <div className="nav__content">
@@ -43,19 +36,19 @@ const Menu = () => {
                 <img src={logo} className="menu__logo" alt="Logo DevBank" />
 
                 <nav className="menu">
-                    <Link to="extrato" className="menu__link menu__link--selected">
+                    <Link to="extrato" id="extrato" className="menu__link">
                         <RiFileList3Line className="menu__icon" />
                         <span className="menu__span">Extrato</span>
                     </Link>
-                    <Link to="saque" className="menu__link">
+                    <Link to="saque" id="saque" className="menu__link">
                         <BsCashCoin className="menu__icon" />
                         <span className="menu__span">Saque</span>
                     </Link>
-                    <Link to="deposito" className="menu__link">
+                    <Link to="deposito" id="deposito" className="menu__link">
                         <BsCashStack className="menu__icon" />
                         <span className="menu__span">Depósito</span>
                     </Link>
-                    <Link to="transferencia" className="menu__link">
+                    <Link to="transferencia" id="transferencia" className="menu__link">
                         <BiTransfer className="menu__icon" />
                         <span className="menu__span">Transferência</span>
                     </Link>

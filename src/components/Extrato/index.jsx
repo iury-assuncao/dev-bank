@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/auth";
+import { MenuContext } from "../../contexts/menu";
 
 import Loading from "../Loading"
 
@@ -11,6 +12,7 @@ const Extrato = () => {
     const [month, setMonth] = useState(new Date(Date.now()).getMonth() + 1)
 
     const { loading, getTransations } = useContext(AuthContext)
+    const { setLinkSelected } = useContext(MenuContext)
 
     useEffect(() => {
         const loadTransations = async () => {
@@ -19,6 +21,8 @@ const Extrato = () => {
 
         loadTransations()
     }, [month])
+
+    useEffect(() => setLinkSelected("extrato"), [])
 
     return(
         <div className="statement">
