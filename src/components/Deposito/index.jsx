@@ -1,5 +1,6 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/auth';
+import { MenuContext } from "../../contexts/menu";
 
 import Loading from "../Loading"
 
@@ -10,6 +11,7 @@ const Deposito = () => {
     const [value, setValue] = useState("")
 
     const { user: { cpf }, loading, operation } = useContext(AuthContext)
+    const { setLinkSelected } = useContext(MenuContext)
 
     const handleOperation = async (e) => {
         e.preventDefault()
@@ -31,6 +33,8 @@ const Deposito = () => {
             setValue(parseFloat(e))
         }
     }
+
+    useEffect(() => setLinkSelected("deposito"), [])
 
     return(
         <>
