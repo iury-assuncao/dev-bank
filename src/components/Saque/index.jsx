@@ -1,5 +1,6 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../contexts/auth';
+import { MenuContext } from "../../contexts/menu";
 
 import Loading from "../Loading"
 
@@ -10,6 +11,7 @@ const Saque = () => {
     const [value, setValue] = useState("")
 
     const { user: { cpf }, loading, operation } = useContext(AuthContext)
+    const { setLinkSelected } = useContext(MenuContext)
 
     const handleOperation = async (e) => {
         e.preventDefault()
@@ -31,6 +33,8 @@ const Saque = () => {
             setValue(parseFloat(e))
         }
     }
+
+    useEffect(() => setLinkSelected("saque"), [])
 
     return(
         <>
